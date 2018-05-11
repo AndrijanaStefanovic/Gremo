@@ -22,13 +22,13 @@ public class MarkaVozila implements Serializable {
 	private long id;
 	
 	@Column(nullable = false)
-    private String naziv;
+    private String nazivMarkeVozila;
     
 
 	public MarkaVozila() {}
 	
-	public MarkaVozila(String naziv){
-		this.naziv = naziv;
+	public MarkaVozila(String nazivMarkeVozila){
+		this.nazivMarkeVozila = nazivMarkeVozila;
 	}
 
 	public long getId() {
@@ -39,12 +39,12 @@ public class MarkaVozila implements Serializable {
 		this.id = id;
 	}
 
-      public String getNaziv(){
-           return naziv;
+      public String getNazivMarkeVozila(){
+           return nazivMarkeVozila;
       }
       
-      public void setNaziv(String naziv){
-           this.naziv = naziv;
+      public void setNazivMarkeVozila(String nazivMarkeVozila){
+           this.nazivMarkeVozila = nazivMarkeVozila;
       }
       
 

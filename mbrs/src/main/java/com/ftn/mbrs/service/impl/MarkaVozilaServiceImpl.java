@@ -34,7 +34,7 @@ public class MarkaVozilaServiceImpl implements MarkaVozilaService{
 	public MarkaVozila update(MarkaVozila markaVozila) {		
 		MarkaVozila tempMarkaVozila = markaVozilaRepository.getOne(markaVozila.getId());
 		
-		tempMarkaVozila.setNaziv(markaVozila.getNaziv());    	
+		tempMarkaVozila.setNazivMarkeVozila(markaVozila.getNazivMarkeVozila());    	
     	 	
 		
 		return markaVozilaRepository.save(tempMarkaVozila);

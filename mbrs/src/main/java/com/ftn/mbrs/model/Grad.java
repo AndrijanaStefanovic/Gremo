@@ -22,13 +22,13 @@ public class Grad implements Serializable {
 	private long id;
 	
 	@Column(nullable = false)
-    private String naziv;
+    private String nazivGrada;
     
 
 	public Grad() {}
 	
-	public Grad(String naziv){
-		this.naziv = naziv;
+	public Grad(String nazivGrada){
+		this.nazivGrada = nazivGrada;
 	}
 
 	public long getId() {
@@ -39,12 +39,12 @@ public class Grad implements Serializable {
 		this.id = id;
 	}
 
-      public String getNaziv(){
-           return naziv;
+      public String getNazivGrada(){
+           return nazivGrada;
       }
       
-      public void setNaziv(String naziv){
-           this.naziv = naziv;
+      public void setNazivGrada(String nazivGrada){
+           this.nazivGrada = nazivGrada;
       }
       
 

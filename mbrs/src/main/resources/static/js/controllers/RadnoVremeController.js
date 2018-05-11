@@ -106,7 +106,7 @@ angular.module('gremoNaElektrikoApp.RadnoVremeController',[])
     	$scope.filterFunction = function(radnoVreme) {
     		if($scope.searchKeyword == "")
     			return true;
-    		var check = radnoVreme.stanica.adresa+" "+" ";
+    		var check = radnoVreme.stanica.adresaStanice+" "+" ";
     		if(check.includes($scope.searchKeyword))
     	    {
     	       	return true; 

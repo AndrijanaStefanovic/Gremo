@@ -2,7 +2,7 @@ angular.module('gremoNaElektrikoApp.TipPrikljuckaController',[])
     .controller('TipPrikljuckaController', function ($scope, TipPrikljuckaService ) {
     
     	$scope.tipPrikljuckaList = [];
-    	$scope.sortType     = 'naziv';
+    	$scope.sortType     = 'nazivTipaPrikljucka';
     	$scope.sortReverse  = false;  
     
     	TipPrikljuckaService.findAll()

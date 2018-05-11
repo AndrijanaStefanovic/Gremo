@@ -22,7 +22,7 @@ public class Stanica implements Serializable {
 	private long id;
 	
 	@Column(nullable = false)
-    private String adresa;
+    private String adresaStanice;
     
 	@ManyToOne(fetch = FetchType.EAGER)
     private Grad grad;
@@ -30,8 +30,8 @@ public class Stanica implements Serializable {
 
 	public Stanica() {}
 	
-	public Stanica(String adresa, Grad grad){
-		this.adresa = adresa;
+	public Stanica(String adresaStanice, Grad grad){
+		this.adresaStanice = adresaStanice;
 		this.grad = grad;
 	}
 
@@ -43,12 +43,12 @@ public class Stanica implements Serializable {
 		this.id = id;
 	}
 
-      public String getAdresa(){
-           return adresa;
+      public String getAdresaStanice(){
+           return adresaStanice;
       }
       
-      public void setAdresa(String adresa){
-           this.adresa = adresa;
+      public void setAdresaStanice(String adresaStanice){
+           this.adresaStanice = adresaStanice;
       }
       
       public Grad getGrad(){

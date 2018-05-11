@@ -128,7 +128,7 @@ angular.module('gremoNaElektrikoApp.PunjenjeController',[])
     	$scope.filterFunction = function(punjenje) {
     		if($scope.searchKeyword == "")
     			return true;
-    		var check = punjenje.vozilo.registracioniBroj+" "+punjenje.tipPrikljucka.naziv+" "+punjenje.stanica.adresa+" "+" ";
+    		var check = punjenje.vozilo.registracioniBroj+" "+punjenje.tipPrikljucka.nazivTipaPrikljucka+" "+punjenje.stanica.adresaStanice+" "+" ";
     		if(check.includes($scope.searchKeyword))
     	    {
     	       	return true; 

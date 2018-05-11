@@ -12,14 +12,14 @@
 				<td><a data-ng-click="sortType = 'krajPunjenja'">Kraj punjenja<span
 					data-ng-show="sortType == 'krajPunjenja'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'vozilo.registracioniBroj'">Registracioni Broj <span
+				<td><a data-ng-click="sortType = 'vozilo.registracioniBroj'">Registracioni broj <span
 					data-ng-show="sortType == 'vozilo.registracioniBroj'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'tipPrikljucka.naziv'">Naziv <span
-					data-ng-show="sortType == 'tipPrikljucka.naziv'" class="fa fa-caret-down"></span>
+				<td><a data-ng-click="sortType = 'tipPrikljucka.nazivTipaPrikljucka'">Naziv tipa prikljucka <span
+					data-ng-show="sortType == 'tipPrikljucka.nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'stanica.adresa'">Adresa <span
-					data-ng-show="sortType == 'stanica.adresa'" class="fa fa-caret-down"></span>
+				<td><a data-ng-click="sortType = 'stanica.adresaStanice'">Adresa stanice <span
+					data-ng-show="sortType == 'stanica.adresaStanice'" class="fa fa-caret-down"></span>
 				</a></td>
 		</tr>
 	</thead>
@@ -30,8 +30,8 @@
 					<td>{{x.pocetakPunjenja | date : "dd-MM-yyyy HH:mm" }}</td>
 					<td>{{x.krajPunjenja | date : "dd-MM-yyyy HH:mm" }}</td>
 					<td>{{x.vozilo.registracioniBroj}}</td>
-					<td>{{x.tipPrikljucka.naziv}}</td>
-					<td>{{x.stanica.adresa}}</td>
+					<td>{{x.tipPrikljucka.nazivTipaPrikljucka}}</td>
+					<td>{{x.stanica.adresaStanice}}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -71,12 +71,12 @@
 						</select>
 						<select name="selectTipPrikljucka" id="selectTipPrikljucka" ng-model="punjenje.tipPrikljucka.id" required>
 							<option ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
-							{{x.naziv}} 
+							{{x.nazivTipaPrikljucka}} 
 							</option>
 						</select>
 						<select name="selectStanica" id="selectStanica" ng-model="punjenje.stanica.id" required>
 							<option ng-repeat="x in stanicaList" value="{{x.id}}">
-							{{x.adresa}} 
+							{{x.adresaStanice}} 
 							</option>
 						</select>
 				<br>
@@ -114,12 +114,12 @@
 						</select>
 						<select id="updateSelectTipPrikljucka" required>
 							<option data-ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
-								{{x.naziv}} 
+								{{x.nazivTipaPrikljucka}} 
 							</option>
 						</select>
 						<select id="updateSelectStanica" required>
 							<option data-ng-repeat="x in stanicaList" value="{{x.id}}">
-								{{x.adresa}} 
+								{{x.adresaStanice}} 
 							</option>
 						</select>
 				<br>
@@ -133,3 +133,4 @@
 	</div>
 </div>
 </div>
+

@@ -9,13 +9,13 @@
 				<td><a data-ng-click="sortType = 'registracioniBroj'">Registracioni broj<span
 					data-ng-show="sortType == 'registracioniBroj'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'modelVozila.naziv'">Naziv <span
-					data-ng-show="sortType == 'modelVozila.naziv'" class="fa fa-caret-down"></span>
+				<td><a data-ng-click="sortType = 'modelVozila.nazivModelaVozila'">Naziv modela vozila <span
+					data-ng-show="sortType == 'modelVozila.nazivModelaVozila'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'kartica.imeVlasnika'">Ime Vlasnika <span
+				<td><a data-ng-click="sortType = 'kartica.imeVlasnika'">Ime vlasnika <span
 					data-ng-show="sortType == 'kartica.imeVlasnika'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'kartica.prezimeVlasnika'">Prezime Vlasnika <span
+				<td><a data-ng-click="sortType = 'kartica.prezimeVlasnika'">Prezime vlasnika <span
 					data-ng-show="sortType == 'kartica.prezimeVlasnika'" class="fa fa-caret-down"></span>
 				</a></td>
 		</tr>
@@ -25,7 +25,7 @@
 
 		<tr data-ng-repeat="x in voziloList | orderBy:sortType:sortReverse | filter:filterFunction ">
 					<td>{{x.registracioniBroj }}</td>
-					<td>{{x.modelVozila.naziv}}</td>
+					<td>{{x.modelVozila.nazivModelaVozila}}</td>
 					<td>{{x.kartica.imeVlasnika}}</td>
 					<td>{{x.kartica.prezimeVlasnika}}</td>
 			
@@ -55,7 +55,7 @@
 							<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj" maxlength="30" required><br>
 						<select name="selectModelVozila" id="selectModelVozila" ng-model="vozilo.modelVozila.id" required>
 							<option ng-repeat="x in modelVozilaList" value="{{x.id}}">
-							{{x.naziv}} 
+							{{x.nazivModelaVozila}} 
 							</option>
 						</select>
 						<select name="selectKartica" id="selectKartica" ng-model="vozilo.kartica.id" required>
@@ -68,7 +68,7 @@
 			</div>
 			<div class="modal-footer">
 				<button data-ng-click="createVozilo()" class="btn btn-primary" data-ng-disabled="!createForm.$valid">U redu</button>
-				<input type="button" class="btn btn-primary" value="OtkaÅ¾i" data-dismiss="modal">
+				<input type="button" class="btn btn-primary" value="Otkaži" data-dismiss="modal">
 			</div>
 		</div>
 	</div>
@@ -86,7 +86,7 @@
 							<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj"  required><br>
 						<select id="updateSelectModelVozila" required>
 							<option data-ng-repeat="x in modelVozilaList" value="{{x.id}}">
-								{{x.naziv}} 
+								{{x.nazivModelaVozila}} 
 							</option>
 						</select>
 						<select id="updateSelectKartica" required>
@@ -99,9 +99,10 @@
 			</div>
 			<div class="modal-footer">
 				<button data-ng-click="updateVozilo()" class="btn btn-primary" data-ng-disabled="!updateForm.$valid">U redu</button>
-				<input type="button" class="btn btn-primary" value="OtkaÅ¾i" data-dismiss="modal">
+				<input type="button" class="btn btn-primary" value="Otkaži" data-dismiss="modal">
 			</div>
 		</div>
 	</div>
 </div>
 </div>
+

@@ -6,14 +6,14 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'naziv'">Naziv<span
-					data-ng-show="sortType == 'naziv'" class="fa fa-caret-down"></span>
+				<td><a data-ng-click="sortType = 'nazivModelaVozila'">Naziv modela vozila<span
+					data-ng-show="sortType == 'nazivModelaVozila'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'tipPrikljucka.naziv'">Naziv <span
-					data-ng-show="sortType == 'tipPrikljucka.naziv'" class="fa fa-caret-down"></span>
+				<td><a data-ng-click="sortType = 'tipPrikljucka.nazivTipaPrikljucka'">Naziv tipa prikljucka <span
+					data-ng-show="sortType == 'tipPrikljucka.nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'markaVozila.naziv'">Naziv <span
-					data-ng-show="sortType == 'markaVozila.naziv'" class="fa fa-caret-down"></span>
+				<td><a data-ng-click="sortType = 'markaVozila.nazivMarkeVozila'">Naziv marke vozila <span
+					data-ng-show="sortType == 'markaVozila.nazivMarkeVozila'" class="fa fa-caret-down"></span>
 				</a></td>
 		</tr>
 	</thead>
@@ -21,9 +21,9 @@
 	<tbody>
 
 		<tr data-ng-repeat="x in modelVozilaList | orderBy:sortType:sortReverse | filter:filterFunction ">
-					<td>{{x.naziv }}</td>
-					<td>{{x.tipPrikljucka.naziv}}</td>
-					<td>{{x.markaVozila.naziv}}</td>
+					<td>{{x.nazivModelaVozila }}</td>
+					<td>{{x.tipPrikljucka.nazivTipaPrikljucka}}</td>
+					<td>{{x.markaVozila.nazivMarkeVozila}}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -48,15 +48,15 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<input type="text" placeholder="Naziv" data-ng-model="modelVozila.naziv" maxlength="30" required><br>
+							<input type="text" placeholder="Naziv modela vozila" data-ng-model="modelVozila.nazivModelaVozila" maxlength="30" required><br>
 						<select name="selectTipPrikljucka" id="selectTipPrikljucka" ng-model="modelVozila.tipPrikljucka.id" required>
 							<option ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
-							{{x.naziv}} 
+							{{x.nazivTipaPrikljucka}} 
 							</option>
 						</select>
 						<select name="selectMarkaVozila" id="selectMarkaVozila" ng-model="modelVozila.markaVozila.id" required>
 							<option ng-repeat="x in markaVozilaList" value="{{x.id}}">
-							{{x.naziv}} 
+							{{x.nazivMarkeVozila}} 
 							</option>
 						</select>
 				<br>
@@ -79,15 +79,15 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<input type="text" placeholder="Naziv" data-ng-model="modelVozila.naziv"  required><br>
+							<input type="text" placeholder="Naziv modela vozila" data-ng-model="modelVozila.nazivModelaVozila"  required><br>
 						<select id="updateSelectTipPrikljucka" required>
 							<option data-ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
-								{{x.naziv}} 
+								{{x.nazivTipaPrikljucka}} 
 							</option>
 						</select>
 						<select id="updateSelectMarkaVozila" required>
 							<option data-ng-repeat="x in markaVozilaList" value="{{x.id}}">
-								{{x.naziv}} 
+								{{x.nazivMarkeVozila}} 
 							</option>
 						</select>
 				<br>
@@ -101,3 +101,4 @@
 	</div>
 </div>
 </div>
+

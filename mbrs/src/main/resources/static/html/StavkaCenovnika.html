@@ -9,8 +9,8 @@
 				<td><a data-ng-click="sortType = 'cena'">Cena<span
 					data-ng-show="sortType == 'cena'" class="fa fa-caret-down"></span>
 				</a></td>
-				<td><a data-ng-click="sortType = 'tipPrikljucka.naziv'">Naziv <span
-					data-ng-show="sortType == 'tipPrikljucka.naziv'" class="fa fa-caret-down"></span>
+				<td><a data-ng-click="sortType = 'tipPrikljucka.nazivTipaPrikljucka'">Naziv tipa prikljucka <span
+					data-ng-show="sortType == 'tipPrikljucka.nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
 				</a></td>
 				<td><a data-ng-click="sortType = 'porez'">Porez<span
 					data-ng-show="sortType == 'porez'" class="fa fa-caret-down"></span>
@@ -25,7 +25,7 @@
 
 		<tr data-ng-repeat="x in stavkaCenovnikaList | orderBy:sortType:sortReverse | filter:filterFunction ">
 					<td>{{x.cena }}</td>
-					<td>{{x.tipPrikljucka.naziv}}</td>
+					<td>{{x.tipPrikljucka.nazivTipaPrikljucka}}</td>
 					<td>{{x.porez }}</td>
 					<td>{{x.cenovnik.datum}}</td>
 			
@@ -55,7 +55,7 @@
 							<input type="number" placeholder="Cena" data-ng-model="stavkaCenovnika.cena"   required><br>
 						<select name="selectTipPrikljucka" id="selectTipPrikljucka" ng-model="stavkaCenovnika.tipPrikljucka.id" required>
 							<option ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
-							{{x.naziv}} 
+							{{x.nazivTipaPrikljucka}} 
 							</option>
 						</select>
 							<input type="number" placeholder="Porez" data-ng-model="stavkaCenovnika.porez"   required><br>
@@ -87,7 +87,7 @@
 							<input type="text" placeholder="Cena" data-ng-model="stavkaCenovnika.cena"  required><br>
 						<select id="updateSelectTipPrikljucka" required>
 							<option data-ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
-								{{x.naziv}} 
+								{{x.nazivTipaPrikljucka}} 
 							</option>
 						</select>
 							<input type="text" placeholder="Porez" data-ng-model="stavkaCenovnika.porez"  required><br>
@@ -107,3 +107,4 @@
 	</div>
 </div>
 </div>
+

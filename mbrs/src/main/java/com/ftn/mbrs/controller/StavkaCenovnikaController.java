@@ -24,7 +24,7 @@ public class StavkaCenovnikaController {
 	@Autowired
 	private StavkaCenovnikaService stavkaCenovnikaService;
 	
-	@RequestMapping(value = "/{tipPrikljuckaId}{cenovnikId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/{tipPrikljuckaId}/{cenovnikId}", method = RequestMethod.POST)
 	public ResponseEntity<StavkaCenovnika> save(@Valid @RequestBody StavkaCenovnika stavkaCenovnika, @PathVariable Long tipPrikljuckaId, @PathVariable Long cenovnikId) {
 		try
 		{

@@ -22,7 +22,7 @@ public class ModelVozila implements Serializable {
 	private long id;
 	
 	@Column(nullable = false)
-    private String naziv;
+    private String nazivModelaVozila;
     
 	@ManyToOne(fetch = FetchType.EAGER)
     private TipPrikljucka tipPrikljucka;
@@ -33,8 +33,8 @@ public class ModelVozila implements Serializable {
 
 	public ModelVozila() {}
 	
-	public ModelVozila(String naziv, TipPrikljucka tipPrikljucka, MarkaVozila markaVozila){
-		this.naziv = naziv;
+	public ModelVozila(String nazivModelaVozila, TipPrikljucka tipPrikljucka, MarkaVozila markaVozila){
+		this.nazivModelaVozila = nazivModelaVozila;
 		this.tipPrikljucka = tipPrikljucka;
 		this.markaVozila = markaVozila;
 	}
@@ -47,12 +47,12 @@ public class ModelVozila implements Serializable {
 		this.id = id;
 	}
 
-      public String getNaziv(){
-           return naziv;
+      public String getNazivModelaVozila(){
+           return nazivModelaVozila;
       }
       
-      public void setNaziv(String naziv){
-           this.naziv = naziv;
+      public void setNazivModelaVozila(String nazivModelaVozila){
+           this.nazivModelaVozila = nazivModelaVozila;
       }
       
       public TipPrikljucka getTipPrikljucka(){

@@ -3,7 +3,7 @@ angular.module('gremoNaElektrikoApp.StanicaController',[])
     
     	$scope.stanicaList = [];
     	$scope.gradList = [];	
-    	$scope.sortType     = 'adresa';
+    	$scope.sortType     = 'adresaStanice';
     	$scope.sortReverse  = false;  
     	$scope.searchKeyword = "";
     
@@ -78,7 +78,7 @@ angular.module('gremoNaElektrikoApp.StanicaController',[])
     	$scope.filterFunction = function(stanica) {
     		if($scope.searchKeyword == "")
     			return true;
-    		var check = stanica.grad.naziv+" "+" ";
+    		var check = stanica.grad.nazivGrada+" "+" ";
     		if(check.includes($scope.searchKeyword))
     	    {
     	       	return true; 

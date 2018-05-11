@@ -89,7 +89,7 @@ angular.module('gremoNaElektrikoApp.VoziloController',[])
     	$scope.filterFunction = function(vozilo) {
     		if($scope.searchKeyword == "")
     			return true;
-    		var check = vozilo.modelVozila.naziv+" "+vozilo.kartica.imeVlasnika+" "+vozilo.kartica.prezimeVlasnika+" "+" ";
+    		var check = vozilo.modelVozila.nazivModelaVozila+" "+vozilo.kartica.imeVlasnika+" "+vozilo.kartica.prezimeVlasnika+" "+" ";
     		if(check.includes($scope.searchKeyword))
     	    {
     	       	return true; 

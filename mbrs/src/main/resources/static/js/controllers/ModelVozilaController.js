@@ -4,7 +4,7 @@ angular.module('gremoNaElektrikoApp.ModelVozilaController',[])
     	$scope.modelVozilaList = [];
     	$scope.tipPrikljuckaList = [];	
     	$scope.markaVozilaList = [];	
-    	$scope.sortType     = 'naziv';
+    	$scope.sortType     = 'nazivModelaVozila';
     	$scope.sortReverse  = false;  
     	$scope.searchKeyword = "";
     
@@ -89,7 +89,7 @@ angular.module('gremoNaElektrikoApp.ModelVozilaController',[])
     	$scope.filterFunction = function(modelVozila) {
     		if($scope.searchKeyword == "")
     			return true;
-    		var check = modelVozila.tipPrikljucka.naziv+" "+modelVozila.markaVozila.naziv+" "+" ";
+    		var check = modelVozila.tipPrikljucka.nazivTipaPrikljucka+" "+modelVozila.markaVozila.nazivMarkeVozila+" "+" ";
     		if(check.includes($scope.searchKeyword))
     	    {
     	       	return true; 

@@ -22,17 +22,17 @@ public class TipPrikljucka implements Serializable {
 	private long id;
 	
 	@Column(nullable = false)
-    private String naziv;
+    private String nazivTipaPrikljucka;
     
 	@Column
-    private float kW;
+    private float kw;
     
 
 	public TipPrikljucka() {}
 	
-	public TipPrikljucka(String naziv, float kW){
-		this.naziv = naziv;
-		this.kW = kW;
+	public TipPrikljucka(String nazivTipaPrikljucka, float kw){
+		this.nazivTipaPrikljucka = nazivTipaPrikljucka;
+		this.kw = kw;
 	}
 
 	public long getId() {
@@ -43,20 +43,20 @@ public class TipPrikljucka implements Serializable {
 		this.id = id;
 	}
 
-      public String getNaziv(){
-           return naziv;
+      public String getNazivTipaPrikljucka(){
+           return nazivTipaPrikljucka;
       }
       
-      public void setNaziv(String naziv){
-           this.naziv = naziv;
+      public void setNazivTipaPrikljucka(String nazivTipaPrikljucka){
+           this.nazivTipaPrikljucka = nazivTipaPrikljucka;
       }
       
-      public float getKW(){
-           return kW;
+      public float getKw(){
+           return kw;
       }
       
-      public void setKW(float kW){
-           this.kW = kW;
+      public void setKw(float kw){
+           this.kw = kw;
       }
       
 

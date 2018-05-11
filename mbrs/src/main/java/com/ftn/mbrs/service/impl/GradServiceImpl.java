@@ -34,7 +34,7 @@ public class GradServiceImpl implements GradService{
 	public Grad update(Grad grad) {		
 		Grad tempGrad = gradRepository.getOne(grad.getId());
 		
-		tempGrad.setNaziv(grad.getNaziv());    	
+		tempGrad.setNazivGrada(grad.getNazivGrada());    	
     	 	
 		
 		return gradRepository.save(tempGrad);

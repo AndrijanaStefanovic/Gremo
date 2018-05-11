@@ -89,7 +89,7 @@ angular.module('gremoNaElektrikoApp.StavkaCenovnikaController',[])
     	$scope.filterFunction = function(stavkaCenovnika) {
     		if($scope.searchKeyword == "")
     			return true;
-    		var check = stavkaCenovnika.tipPrikljucka.naziv+" "+stavkaCenovnika.cenovnik.datum+" "+" ";
+    		var check = stavkaCenovnika.tipPrikljucka.nazivTipaPrikljucka+" "+stavkaCenovnika.cenovnik.datum+" "+" ";
     		if(check.includes($scope.searchKeyword))
     	    {
     	       	return true; 

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.ftn.mbrs.model.Grad;
 import com.ftn.mbrs.repository.GradRepository;
 
-import com.ftn.mbrs.model.Punjenje;
-import com.ftn.mbrs.repository.PunjenjeRepository;
 import com.ftn.mbrs.model.RadnoVreme;
 import com.ftn.mbrs.repository.RadnoVremeRepository;
+import com.ftn.mbrs.model.Punjenje;
+import com.ftn.mbrs.repository.PunjenjeRepository;
 
 import com.ftn.mbrs.service.StanicaService;
 import com.ftn.mbrs.model.Stanica;
@@ -24,10 +24,10 @@ public class StanicaServiceImpl implements StanicaService{
 	private StanicaRepository stanicaRepository;
 
 	@Autowired
-	private PunjenjeRepository punjenjeRepository;
+	private RadnoVremeRepository radnoVremeRepository;
 	
 	@Autowired
-	private RadnoVremeRepository radnoVremeRepository;
+	private PunjenjeRepository punjenjeRepository;
 	
 			
 	@Autowired
@@ -47,7 +47,7 @@ public class StanicaServiceImpl implements StanicaService{
 	public Stanica update(Stanica stanica) {		
 		Stanica tempStanica = stanicaRepository.getOne(stanica.getId());
 		
-		tempStanica.setAdresa(stanica.getAdresa());    	
+		tempStanica.setAdresaStanice(stanica.getAdresaStanice());    	
     	 	
 		Grad tempGrad = gradRepository.getOne(stanica.getGrad().getId());
 		tempStanica.setGrad(tempGrad);
@@ -60,12 +60,12 @@ public class StanicaServiceImpl implements StanicaService{
 	public String delete(Long id) {
 		Stanica stanica = stanicaRepository.getOne(id);
 		
-		List<Punjenje> punjenjes = punjenjeRepository.findByStanica(stanica);
-		if(!punjenjes.isEmpty()) {
-			return "ERROR";
-		}    	
 		List<RadnoVreme> radnoVremes = radnoVremeRepository.findByStanica(stanica);
 		if(!radnoVremes.isEmpty()) {
+			return "ERROR";
+		}    	
+		List<Punjenje> punjenjes = punjenjeRepository.findByStanica(stanica);
+		if(!punjenjes.isEmpty()) {
 			return "ERROR";
 		}    	
 		

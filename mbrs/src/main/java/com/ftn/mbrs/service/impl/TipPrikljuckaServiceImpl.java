@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import com.ftn.mbrs.model.ModelVozila;
-import com.ftn.mbrs.repository.ModelVozilaRepository;
 import com.ftn.mbrs.model.StavkaCenovnika;
 import com.ftn.mbrs.repository.StavkaCenovnikaRepository;
+import com.ftn.mbrs.model.ModelVozila;
+import com.ftn.mbrs.repository.ModelVozilaRepository;
 import com.ftn.mbrs.model.Punjenje;
 import com.ftn.mbrs.repository.PunjenjeRepository;
 
@@ -24,10 +24,10 @@ public class TipPrikljuckaServiceImpl implements TipPrikljuckaService{
 	private TipPrikljuckaRepository tipPrikljuckaRepository;
 
 	@Autowired
-	private ModelVozilaRepository modelVozilaRepository;
+	private StavkaCenovnikaRepository stavkaCenovnikaRepository;
 	
 	@Autowired
-	private StavkaCenovnikaRepository stavkaCenovnikaRepository;
+	private ModelVozilaRepository modelVozilaRepository;
 	
 	@Autowired
 	private PunjenjeRepository punjenjeRepository;
@@ -44,8 +44,8 @@ public class TipPrikljuckaServiceImpl implements TipPrikljuckaService{
 	public TipPrikljucka update(TipPrikljucka tipPrikljucka) {		
 		TipPrikljucka tempTipPrikljucka = tipPrikljuckaRepository.getOne(tipPrikljucka.getId());
 		
-		tempTipPrikljucka.setNaziv(tipPrikljucka.getNaziv());    	
-		tempTipPrikljucka.setKW(tipPrikljucka.getKW());    	
+		tempTipPrikljucka.setNazivTipaPrikljucka(tipPrikljucka.getNazivTipaPrikljucka());    	
+		tempTipPrikljucka.setKw(tipPrikljucka.getKw());    	
     	 	
 		
 		return tipPrikljuckaRepository.save(tempTipPrikljucka);
@@ -56,12 +56,12 @@ public class TipPrikljuckaServiceImpl implements TipPrikljuckaService{
 	public String delete(Long id) {
 		TipPrikljucka tipPrikljucka = tipPrikljuckaRepository.getOne(id);
 		
-		List<ModelVozila> modelVozilas = modelVozilaRepository.findByTipPrikljucka(tipPrikljucka);
-		if(!modelVozilas.isEmpty()) {
-			return "ERROR";
-		}    	
 		List<StavkaCenovnika> stavkaCenovnikas = stavkaCenovnikaRepository.findByTipPrikljucka(tipPrikljucka);
 		if(!stavkaCenovnikas.isEmpty()) {
+			return "ERROR";
+		}    	
+		List<ModelVozila> modelVozilas = modelVozilaRepository.findByTipPrikljucka(tipPrikljucka);
+		if(!modelVozilas.isEmpty()) {
 			return "ERROR";
 		}    	
 		List<Punjenje> punjenjes = punjenjeRepository.findByTipPrikljucka(tipPrikljucka);

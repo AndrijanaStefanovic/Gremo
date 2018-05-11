@@ -2,7 +2,7 @@ angular.module('gremoNaElektrikoApp.MarkaVozilaController',[])
     .controller('MarkaVozilaController', function ($scope, MarkaVozilaService ) {
     
     	$scope.markaVozilaList = [];
-    	$scope.sortType     = 'naziv';
+    	$scope.sortType     = 'nazivMarkeVozila';
     	$scope.sortReverse  = false;  
     
     	MarkaVozilaService.findAll()

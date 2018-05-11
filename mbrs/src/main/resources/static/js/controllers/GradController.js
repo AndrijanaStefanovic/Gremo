@@ -2,7 +2,7 @@ angular.module('gremoNaElektrikoApp.GradController',[])
     .controller('GradController', function ($scope, GradService ) {
     
     	$scope.gradList = [];
-    	$scope.sortType     = 'naziv';
+    	$scope.sortType     = 'nazivGrada';
     	$scope.sortReverse  = false;  
     
     	GradService.findAll()

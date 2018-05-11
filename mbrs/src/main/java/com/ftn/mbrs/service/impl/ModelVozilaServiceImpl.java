@@ -50,7 +50,7 @@ public class ModelVozilaServiceImpl implements ModelVozilaService{
 	public ModelVozila update(ModelVozila modelVozila) {		
 		ModelVozila tempModelVozila = modelVozilaRepository.getOne(modelVozila.getId());
 		
-		tempModelVozila.setNaziv(modelVozila.getNaziv());    	
+		tempModelVozila.setNazivModelaVozila(modelVozila.getNazivModelaVozila());    	
     	 	
 		TipPrikljucka tempTipPrikljucka = tipPrikljuckaRepository.getOne(modelVozila.getTipPrikljucka().getId());
 		tempModelVozila.setTipPrikljucka(tempTipPrikljucka);
