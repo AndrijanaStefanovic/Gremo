@@ -9,7 +9,7 @@ angular.module('gremoNaElektrikoApp.KarticaController',[])
     		.then(function successCallback(response) {
     			$scope.karticaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 
@@ -24,6 +24,8 @@ angular.module('gremoNaElektrikoApp.KarticaController',[])
     			.then(function successCallback(response) {
     				$scope.karticaList.push(response.data);
     				 $('#createKarticaModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -36,7 +38,9 @@ angular.module('gremoNaElektrikoApp.KarticaController',[])
     					var index = $scope.karticaList.indexOf(kartica);
     					$scope.karticaList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(kartica) {
@@ -52,9 +56,11 @@ angular.module('gremoNaElektrikoApp.KarticaController',[])
     					.then(function successCallback(response) {
     						$scope.karticaList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	

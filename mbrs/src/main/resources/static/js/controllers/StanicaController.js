@@ -11,14 +11,14 @@ angular.module('gremoNaElektrikoApp.StanicaController',[])
     		.then(function successCallback(response) {
     			$scope.stanicaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 		GradService.findAll()
     		.then(function successCallback(response) {
     			$scope.gradList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 
@@ -34,6 +34,8 @@ angular.module('gremoNaElektrikoApp.StanicaController',[])
     			.then(function successCallback(response) {
     				$scope.stanicaList.push(response.data);
     				 $('#createStanicaModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -46,7 +48,9 @@ angular.module('gremoNaElektrikoApp.StanicaController',[])
     					var index = $scope.stanicaList.indexOf(stanica);
     					$scope.stanicaList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(stanica) {
@@ -64,9 +68,11 @@ angular.module('gremoNaElektrikoApp.StanicaController',[])
     					.then(function successCallback(response) {
     						$scope.stanicaList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.filterFunction = function(stanica) {

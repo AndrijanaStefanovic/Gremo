@@ -29,14 +29,14 @@ angular.module('gremoNaElektrikoApp.RadnoVremeController',[])
     		.then(function successCallback(response) {
     			$scope.radnoVremeList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 		StanicaService.findAll()
     		.then(function successCallback(response) {
     			$scope.stanicaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 
@@ -56,6 +56,8 @@ angular.module('gremoNaElektrikoApp.RadnoVremeController',[])
     			.then(function successCallback(response) {
     				$scope.radnoVremeList.push(response.data);
     				 $('#createRadnoVremeModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -68,7 +70,9 @@ angular.module('gremoNaElektrikoApp.RadnoVremeController',[])
     					var index = $scope.radnoVremeList.indexOf(radnoVreme);
     					$scope.radnoVremeList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(radnoVreme) {
@@ -92,9 +96,11 @@ angular.module('gremoNaElektrikoApp.RadnoVremeController',[])
     					.then(function successCallback(response) {
     						$scope.radnoVremeList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.filterFunction = function(radnoVreme) {

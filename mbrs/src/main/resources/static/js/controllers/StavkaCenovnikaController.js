@@ -12,21 +12,21 @@ angular.module('gremoNaElektrikoApp.StavkaCenovnikaController',[])
     		.then(function successCallback(response) {
     			$scope.stavkaCenovnikaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 		TipPrikljuckaService.findAll()
     		.then(function successCallback(response) {
     			$scope.tipPrikljuckaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 		CenovnikService.findAll()
     		.then(function successCallback(response) {
     			$scope.cenovnikList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 
@@ -43,6 +43,8 @@ angular.module('gremoNaElektrikoApp.StavkaCenovnikaController',[])
     			.then(function successCallback(response) {
     				$scope.stavkaCenovnikaList.push(response.data);
     				 $('#createStavkaCenovnikaModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -55,7 +57,9 @@ angular.module('gremoNaElektrikoApp.StavkaCenovnikaController',[])
     					var index = $scope.stavkaCenovnikaList.indexOf(stavkaCenovnika);
     					$scope.stavkaCenovnikaList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(stavkaCenovnika) {
@@ -75,9 +79,11 @@ angular.module('gremoNaElektrikoApp.StavkaCenovnikaController',[])
     					.then(function successCallback(response) {
     						$scope.stavkaCenovnikaList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.filterFunction = function(stavkaCenovnika) {

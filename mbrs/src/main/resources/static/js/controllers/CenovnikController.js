@@ -18,7 +18,7 @@ angular.module('gremoNaElektrikoApp.CenovnikController',[])
     		.then(function successCallback(response) {
     			$scope.cenovnikList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 
@@ -35,6 +35,8 @@ angular.module('gremoNaElektrikoApp.CenovnikController',[])
     			.then(function successCallback(response) {
     				$scope.cenovnikList.push(response.data);
     				 $('#createCenovnikModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -47,7 +49,9 @@ angular.module('gremoNaElektrikoApp.CenovnikController',[])
     					var index = $scope.cenovnikList.indexOf(cenovnik);
     					$scope.cenovnikList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(cenovnik) {
@@ -66,9 +70,11 @@ angular.module('gremoNaElektrikoApp.CenovnikController',[])
     					.then(function successCallback(response) {
     						$scope.cenovnikList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	

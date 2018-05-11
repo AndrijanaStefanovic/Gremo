@@ -9,7 +9,7 @@ angular.module('gremoNaElektrikoApp.TipPrikljuckaController',[])
     		.then(function successCallback(response) {
     			$scope.tipPrikljuckaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 
@@ -24,6 +24,8 @@ angular.module('gremoNaElektrikoApp.TipPrikljuckaController',[])
     			.then(function successCallback(response) {
     				$scope.tipPrikljuckaList.push(response.data);
     				 $('#createTipPrikljuckaModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -36,7 +38,9 @@ angular.module('gremoNaElektrikoApp.TipPrikljuckaController',[])
     					var index = $scope.tipPrikljuckaList.indexOf(tipPrikljucka);
     					$scope.tipPrikljuckaList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(tipPrikljucka) {
@@ -52,9 +56,11 @@ angular.module('gremoNaElektrikoApp.TipPrikljuckaController',[])
     					.then(function successCallback(response) {
     						$scope.tipPrikljuckaList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	

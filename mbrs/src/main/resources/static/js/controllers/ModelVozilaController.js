@@ -12,21 +12,21 @@ angular.module('gremoNaElektrikoApp.ModelVozilaController',[])
     		.then(function successCallback(response) {
     			$scope.modelVozilaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 		TipPrikljuckaService.findAll()
     		.then(function successCallback(response) {
     			$scope.tipPrikljuckaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 		MarkaVozilaService.findAll()
     		.then(function successCallback(response) {
     			$scope.markaVozilaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 
@@ -43,6 +43,8 @@ angular.module('gremoNaElektrikoApp.ModelVozilaController',[])
     			.then(function successCallback(response) {
     				$scope.modelVozilaList.push(response.data);
     				 $('#createModelVozilaModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -55,7 +57,9 @@ angular.module('gremoNaElektrikoApp.ModelVozilaController',[])
     					var index = $scope.modelVozilaList.indexOf(modelVozila);
     					$scope.modelVozilaList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(modelVozila) {
@@ -75,9 +79,11 @@ angular.module('gremoNaElektrikoApp.ModelVozilaController',[])
     					.then(function successCallback(response) {
     						$scope.modelVozilaList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.filterFunction = function(modelVozila) {

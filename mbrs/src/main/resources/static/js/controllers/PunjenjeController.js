@@ -31,28 +31,28 @@ angular.module('gremoNaElektrikoApp.PunjenjeController',[])
     		.then(function successCallback(response) {
     			$scope.punjenjeList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 		VoziloService.findAll()
     		.then(function successCallback(response) {
     			$scope.voziloList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 		TipPrikljuckaService.findAll()
     		.then(function successCallback(response) {
     			$scope.tipPrikljuckaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 		StanicaService.findAll()
     		.then(function successCallback(response) {
     			$scope.stanicaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 
@@ -74,6 +74,8 @@ angular.module('gremoNaElektrikoApp.PunjenjeController',[])
     			.then(function successCallback(response) {
     				$scope.punjenjeList.push(response.data);
     				 $('#createPunjenjeModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -86,7 +88,9 @@ angular.module('gremoNaElektrikoApp.PunjenjeController',[])
     					var index = $scope.punjenjeList.indexOf(punjenje);
     					$scope.punjenjeList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(punjenje) {
@@ -114,9 +118,11 @@ angular.module('gremoNaElektrikoApp.PunjenjeController',[])
     					.then(function successCallback(response) {
     						$scope.punjenjeList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.filterFunction = function(punjenje) {

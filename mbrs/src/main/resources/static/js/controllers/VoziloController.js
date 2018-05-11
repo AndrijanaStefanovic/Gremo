@@ -12,21 +12,21 @@ angular.module('gremoNaElektrikoApp.VoziloController',[])
     		.then(function successCallback(response) {
     			$scope.voziloList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 		ModelVozilaService.findAll()
     		.then(function successCallback(response) {
     			$scope.modelVozilaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 		KarticaService.findAll()
     		.then(function successCallback(response) {
     			$scope.karticaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
     		
 
@@ -43,6 +43,8 @@ angular.module('gremoNaElektrikoApp.VoziloController',[])
     			.then(function successCallback(response) {
     				$scope.voziloList.push(response.data);
     				 $('#createVoziloModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -55,7 +57,9 @@ angular.module('gremoNaElektrikoApp.VoziloController',[])
     					var index = $scope.voziloList.indexOf(vozilo);
     					$scope.voziloList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(vozilo) {
@@ -75,9 +79,11 @@ angular.module('gremoNaElektrikoApp.VoziloController',[])
     					.then(function successCallback(response) {
     						$scope.voziloList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.filterFunction = function(vozilo) {

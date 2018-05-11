@@ -9,7 +9,7 @@ angular.module('gremoNaElektrikoApp.GradController',[])
     		.then(function successCallback(response) {
     			$scope.gradList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 
@@ -24,6 +24,8 @@ angular.module('gremoNaElektrikoApp.GradController',[])
     			.then(function successCallback(response) {
     				$scope.gradList.push(response.data);
     				 $('#createGradModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -36,7 +38,9 @@ angular.module('gremoNaElektrikoApp.GradController',[])
     					var index = $scope.gradList.indexOf(grad);
     					$scope.gradList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(grad) {
@@ -52,9 +56,11 @@ angular.module('gremoNaElektrikoApp.GradController',[])
     					.then(function successCallback(response) {
     						$scope.gradList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	

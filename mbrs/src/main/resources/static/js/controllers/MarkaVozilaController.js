@@ -9,7 +9,7 @@ angular.module('gremoNaElektrikoApp.MarkaVozilaController',[])
     		.then(function successCallback(response) {
     			$scope.markaVozilaList = response.data;
     		}, function errorCallback(response){
-    			toastr.error("Greska");
+    			toastr.error("Doslo je do greske.");
     		})
 
 
@@ -24,6 +24,8 @@ angular.module('gremoNaElektrikoApp.MarkaVozilaController',[])
     			.then(function successCallback(response) {
     				$scope.markaVozilaList.push(response.data);
     				 $('#createMarkaVozilaModal').modal('toggle');
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
     			})
     	}
 
@@ -36,7 +38,9 @@ angular.module('gremoNaElektrikoApp.MarkaVozilaController',[])
     					var index = $scope.markaVozilaList.indexOf(markaVozila);
     					$scope.markaVozilaList.splice(index, 1); 
     				}
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	$scope.openUpdateModal = function(markaVozila) {
@@ -52,9 +56,11 @@ angular.module('gremoNaElektrikoApp.MarkaVozilaController',[])
     					.then(function successCallback(response) {
     						$scope.markaVozilaList = response.data;
     					}, function errorCallback(response){
-    						toastr.error("Greska");
+    						toastr.error("Doslo je do greske.");
     				})
-    		})
+    			}, function errorCallback(response){
+    				toastr.error("Doslo je do greske.");
+    			})
     	}
     	
     	
