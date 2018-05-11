@@ -24,13 +24,17 @@ import com.ftn.mbrs.model.Cenovnik;
 @Component
 @Aspect
 public class CenovnikServiceImplAspect {
-	@Before("execution(* com.ftn.mbrs.service.impl.CenovnikServiceImpl.save(..))")
-	public void sampleAdviceBefore(JoinPoint joinPoint) throws Throwable {
-		System.out.println("-----------Pozvan je before sevice impl save aspekt----------");
+
+	@Before("execution(* com.ftn.mbrs.service.impl.CenovnikServiceImpl.save(..))&& args(cenovnik)")
+	public void CenovnikControllerBeforeSaveAdvice(JoinPoint joinPoint, Cenovnik cenovnik) throws Throwable {
+		if (cenovnik.getDatum().before(new Date()))
+			{
+				throw new WrongDateException("Date is older than current date.");
+			}
 	}
 	
 	@Before("execution(* com.ftn.mbrs.service.impl.CenovnikServiceImpl.update(..))&& args(cenovnik)")
-	public void CenovnikControllerBeforeAdvice(JoinPoint joinPoint, Cenovnik cenovnik) throws Throwable {
+	public void CenovnikControllerBeforeUpdateAdvice(JoinPoint joinPoint, Cenovnik cenovnik) throws Throwable {
 		if (cenovnik.getDatum().before(new Date()))
 			{
 				throw new WrongDateException("Date is older than current date.");
