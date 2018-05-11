@@ -1,6 +1,7 @@
 package com.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -25,31 +26,66 @@ public class TipPrikljuckaController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<TipPrikljucka> save(@Valid @RequestBody TipPrikljucka tipPrikljucka) {
-		TipPrikljucka savedTipPrikljucka = tipPrikljuckaService.save(tipPrikljucka);
-		return new ResponseEntity<TipPrikljucka>(savedTipPrikljucka, HttpStatus.CREATED);
+		try
+		{
+			TipPrikljucka savedTipPrikljucka = tipPrikljuckaService.save(tipPrikljucka);
+			return new ResponseEntity<TipPrikljucka>(savedTipPrikljucka, HttpStatus.CREATED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<TipPrikljucka>(tipPrikljucka, HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<TipPrikljucka> update(@Valid @RequestBody TipPrikljucka tipPrikljucka) {
-		TipPrikljucka updatedTipPrikljucka = tipPrikljuckaService.update(tipPrikljucka);
-		return new ResponseEntity<TipPrikljucka>(updatedTipPrikljucka, HttpStatus.OK);
+		try
+		{
+			TipPrikljucka updatedTipPrikljucka = tipPrikljuckaService.update(tipPrikljucka);
+			return new ResponseEntity<TipPrikljucka>(updatedTipPrikljucka, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<TipPrikljucka>(tipPrikljucka, HttpStatus.FORBIDDEN);
+		}
 	}
 		
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/plain")
 	public ResponseEntity<String> delete(@PathVariable Long id) {
-		String response = tipPrikljuckaService.delete(id);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
+		try
+		{
+			String response = tipPrikljuckaService.delete(id);
+			return new ResponseEntity<String>(response, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(id.toString(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<TipPrikljucka> findOne(@PathVariable Long id) {
-		TipPrikljucka tipPrikljucka = tipPrikljuckaService.findOne(id);
-		return new ResponseEntity<TipPrikljucka>(tipPrikljucka, HttpStatus.OK);
+		try
+		{
+			TipPrikljucka tipPrikljucka = tipPrikljuckaService.findOne(id);
+			return new ResponseEntity<TipPrikljucka>(tipPrikljucka, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<TipPrikljucka>(new TipPrikljucka(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<TipPrikljucka>> findAll() {
+		try{
 		List<TipPrikljucka> tipPrikljuckas = tipPrikljuckaService.findAll();
 		return new ResponseEntity<List<TipPrikljucka>>(tipPrikljuckas, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{		
+		return new ResponseEntity<List<TipPrikljucka>>(new ArrayList<TipPrikljucka>(), HttpStatus.FORBIDDEN);
+		}
+		
 	}
 }

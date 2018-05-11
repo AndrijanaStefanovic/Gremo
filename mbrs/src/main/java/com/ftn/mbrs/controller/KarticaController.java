@@ -1,6 +1,7 @@
 package com.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -25,31 +26,66 @@ public class KarticaController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Kartica> save(@Valid @RequestBody Kartica kartica) {
-		Kartica savedKartica = karticaService.save(kartica);
-		return new ResponseEntity<Kartica>(savedKartica, HttpStatus.CREATED);
+		try
+		{
+			Kartica savedKartica = karticaService.save(kartica);
+			return new ResponseEntity<Kartica>(savedKartica, HttpStatus.CREATED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Kartica>(kartica, HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<Kartica> update(@Valid @RequestBody Kartica kartica) {
-		Kartica updatedKartica = karticaService.update(kartica);
-		return new ResponseEntity<Kartica>(updatedKartica, HttpStatus.OK);
+		try
+		{
+			Kartica updatedKartica = karticaService.update(kartica);
+			return new ResponseEntity<Kartica>(updatedKartica, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Kartica>(kartica, HttpStatus.FORBIDDEN);
+		}
 	}
 		
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/plain")
 	public ResponseEntity<String> delete(@PathVariable Long id) {
-		String response = karticaService.delete(id);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
+		try
+		{
+			String response = karticaService.delete(id);
+			return new ResponseEntity<String>(response, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(id.toString(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Kartica> findOne(@PathVariable Long id) {
-		Kartica kartica = karticaService.findOne(id);
-		return new ResponseEntity<Kartica>(kartica, HttpStatus.OK);
+		try
+		{
+			Kartica kartica = karticaService.findOne(id);
+			return new ResponseEntity<Kartica>(kartica, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Kartica>(new Kartica(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Kartica>> findAll() {
+		try{
 		List<Kartica> karticas = karticaService.findAll();
 		return new ResponseEntity<List<Kartica>>(karticas, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{		
+		return new ResponseEntity<List<Kartica>>(new ArrayList<Kartica>(), HttpStatus.FORBIDDEN);
+		}
+		
 	}
 }

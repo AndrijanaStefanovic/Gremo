@@ -1,6 +1,7 @@
 package com.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -25,31 +26,66 @@ public class GradController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Grad> save(@Valid @RequestBody Grad grad) {
-		Grad savedGrad = gradService.save(grad);
-		return new ResponseEntity<Grad>(savedGrad, HttpStatus.CREATED);
+		try
+		{
+			Grad savedGrad = gradService.save(grad);
+			return new ResponseEntity<Grad>(savedGrad, HttpStatus.CREATED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Grad>(grad, HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<Grad> update(@Valid @RequestBody Grad grad) {
-		Grad updatedGrad = gradService.update(grad);
-		return new ResponseEntity<Grad>(updatedGrad, HttpStatus.OK);
+		try
+		{
+			Grad updatedGrad = gradService.update(grad);
+			return new ResponseEntity<Grad>(updatedGrad, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Grad>(grad, HttpStatus.FORBIDDEN);
+		}
 	}
 		
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/plain")
 	public ResponseEntity<String> delete(@PathVariable Long id) {
-		String response = gradService.delete(id);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
+		try
+		{
+			String response = gradService.delete(id);
+			return new ResponseEntity<String>(response, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(id.toString(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Grad> findOne(@PathVariable Long id) {
-		Grad grad = gradService.findOne(id);
-		return new ResponseEntity<Grad>(grad, HttpStatus.OK);
+		try
+		{
+			Grad grad = gradService.findOne(id);
+			return new ResponseEntity<Grad>(grad, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Grad>(new Grad(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Grad>> findAll() {
+		try{
 		List<Grad> grads = gradService.findAll();
 		return new ResponseEntity<List<Grad>>(grads, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{		
+		return new ResponseEntity<List<Grad>>(new ArrayList<Grad>(), HttpStatus.FORBIDDEN);
+		}
+		
 	}
 }

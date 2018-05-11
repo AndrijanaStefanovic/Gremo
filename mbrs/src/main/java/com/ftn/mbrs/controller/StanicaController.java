@@ -1,6 +1,7 @@
 package com.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -25,31 +26,66 @@ public class StanicaController {
 	
 	@RequestMapping(value = "/{gradId}", method = RequestMethod.POST)
 	public ResponseEntity<Stanica> save(@Valid @RequestBody Stanica stanica, @PathVariable Long gradId) {
-		Stanica savedStanica = stanicaService.save(stanica, gradId);
-		return new ResponseEntity<Stanica>(savedStanica, HttpStatus.CREATED);
+		try
+		{
+			Stanica savedStanica = stanicaService.save(stanica, gradId);
+			return new ResponseEntity<Stanica>(savedStanica, HttpStatus.CREATED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Stanica>(stanica, HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<Stanica> update(@Valid @RequestBody Stanica stanica) {
-		Stanica updatedStanica = stanicaService.update(stanica);
-		return new ResponseEntity<Stanica>(updatedStanica, HttpStatus.OK);
+		try
+		{
+			Stanica updatedStanica = stanicaService.update(stanica);
+			return new ResponseEntity<Stanica>(updatedStanica, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Stanica>(stanica, HttpStatus.FORBIDDEN);
+		}
 	}
 		
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/plain")
 	public ResponseEntity<String> delete(@PathVariable Long id) {
-		String response = stanicaService.delete(id);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
+		try
+		{
+			String response = stanicaService.delete(id);
+			return new ResponseEntity<String>(response, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(id.toString(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Stanica> findOne(@PathVariable Long id) {
-		Stanica stanica = stanicaService.findOne(id);
-		return new ResponseEntity<Stanica>(stanica, HttpStatus.OK);
+		try
+		{
+			Stanica stanica = stanicaService.findOne(id);
+			return new ResponseEntity<Stanica>(stanica, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Stanica>(new Stanica(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Stanica>> findAll() {
+		try{
 		List<Stanica> stanicas = stanicaService.findAll();
 		return new ResponseEntity<List<Stanica>>(stanicas, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{		
+		return new ResponseEntity<List<Stanica>>(new ArrayList<Stanica>(), HttpStatus.FORBIDDEN);
+		}
+		
 	}
 }

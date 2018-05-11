@@ -1,6 +1,7 @@
 package com.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -25,31 +26,66 @@ public class CenovnikController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Cenovnik> save(@Valid @RequestBody Cenovnik cenovnik) {
-		Cenovnik savedCenovnik = cenovnikService.save(cenovnik);
-		return new ResponseEntity<Cenovnik>(savedCenovnik, HttpStatus.CREATED);
+		try
+		{
+			Cenovnik savedCenovnik = cenovnikService.save(cenovnik);
+			return new ResponseEntity<Cenovnik>(savedCenovnik, HttpStatus.CREATED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Cenovnik>(cenovnik, HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<Cenovnik> update(@Valid @RequestBody Cenovnik cenovnik) {
-		Cenovnik updatedCenovnik = cenovnikService.update(cenovnik);
-		return new ResponseEntity<Cenovnik>(updatedCenovnik, HttpStatus.OK);
+		try
+		{
+			Cenovnik updatedCenovnik = cenovnikService.update(cenovnik);
+			return new ResponseEntity<Cenovnik>(updatedCenovnik, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Cenovnik>(cenovnik, HttpStatus.FORBIDDEN);
+		}
 	}
 		
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/plain")
 	public ResponseEntity<String> delete(@PathVariable Long id) {
-		String response = cenovnikService.delete(id);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
+		try
+		{
+			String response = cenovnikService.delete(id);
+			return new ResponseEntity<String>(response, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(id.toString(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Cenovnik> findOne(@PathVariable Long id) {
-		Cenovnik cenovnik = cenovnikService.findOne(id);
-		return new ResponseEntity<Cenovnik>(cenovnik, HttpStatus.OK);
+		try
+		{
+			Cenovnik cenovnik = cenovnikService.findOne(id);
+			return new ResponseEntity<Cenovnik>(cenovnik, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<Cenovnik>(new Cenovnik(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Cenovnik>> findAll() {
+		try{
 		List<Cenovnik> cenovniks = cenovnikService.findAll();
 		return new ResponseEntity<List<Cenovnik>>(cenovniks, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{		
+		return new ResponseEntity<List<Cenovnik>>(new ArrayList<Cenovnik>(), HttpStatus.FORBIDDEN);
+		}
+		
 	}
 }

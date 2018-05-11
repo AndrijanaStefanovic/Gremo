@@ -1,6 +1,7 @@
 package com.ftn.mbrs.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -25,31 +26,66 @@ public class ModelVozilaController {
 	
 	@RequestMapping(value = "/{tipPrikljuckaId}/{markaVozilaId}", method = RequestMethod.POST)
 	public ResponseEntity<ModelVozila> save(@Valid @RequestBody ModelVozila modelVozila, @PathVariable Long tipPrikljuckaId, @PathVariable Long markaVozilaId) {
-		ModelVozila savedModelVozila = modelVozilaService.save(modelVozila, tipPrikljuckaId, markaVozilaId);
-		return new ResponseEntity<ModelVozila>(savedModelVozila, HttpStatus.CREATED);
+		try
+		{
+			ModelVozila savedModelVozila = modelVozilaService.save(modelVozila, tipPrikljuckaId, markaVozilaId);
+			return new ResponseEntity<ModelVozila>(savedModelVozila, HttpStatus.CREATED);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<ModelVozila>(modelVozila, HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.PUT)
 	public ResponseEntity<ModelVozila> update(@Valid @RequestBody ModelVozila modelVozila) {
-		ModelVozila updatedModelVozila = modelVozilaService.update(modelVozila);
-		return new ResponseEntity<ModelVozila>(updatedModelVozila, HttpStatus.OK);
+		try
+		{
+			ModelVozila updatedModelVozila = modelVozilaService.update(modelVozila);
+			return new ResponseEntity<ModelVozila>(updatedModelVozila, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<ModelVozila>(modelVozila, HttpStatus.FORBIDDEN);
+		}
 	}
 		
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/plain")
 	public ResponseEntity<String> delete(@PathVariable Long id) {
-		String response = modelVozilaService.delete(id);
-		return new ResponseEntity<String>(response, HttpStatus.OK);
+		try
+		{
+			String response = modelVozilaService.delete(id);
+			return new ResponseEntity<String>(response, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<String>(id.toString(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public ResponseEntity<ModelVozila> findOne(@PathVariable Long id) {
-		ModelVozila modelVozila = modelVozilaService.findOne(id);
-		return new ResponseEntity<ModelVozila>(modelVozila, HttpStatus.OK);
+		try
+		{
+			ModelVozila modelVozila = modelVozilaService.findOne(id);
+			return new ResponseEntity<ModelVozila>(modelVozila, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{
+			return new ResponseEntity<ModelVozila>(new ModelVozila(), HttpStatus.FORBIDDEN);
+		}
 	}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ModelVozila>> findAll() {
+		try{
 		List<ModelVozila> modelVozilas = modelVozilaService.findAll();
 		return new ResponseEntity<List<ModelVozila>>(modelVozilas, HttpStatus.OK);
+		}
+		catch(Exception e)
+		{		
+		return new ResponseEntity<List<ModelVozila>>(new ArrayList<ModelVozila>(), HttpStatus.FORBIDDEN);
+		}
+		
 	}
 }
