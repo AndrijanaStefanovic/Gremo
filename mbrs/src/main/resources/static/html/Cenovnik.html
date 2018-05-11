@@ -5,16 +5,16 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'datum'">Datum cenovnika<span
-					data-ng-show="sortType == 'datum'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'datum'">Datum cenovnika<span
+				data-ng-show="sortType == 'datum'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in cenovnikList | orderBy:sortType:sortReverse">
-					<td>{{x.datum | date : "dd-MM-yyyy HH:mm" }}</td>
+			<td>{{x.datum | date : "dd-MM-yyyy HH:mm" }}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -39,10 +39,11 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<div class="input-group date" id="dateTimeDatum" data-ng-init="initDateTimePickerDatum()">
-				 				<input type="text" class="form-control" id="dateTextFieldDatum"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
+						<label for="dateTimeDatum">Datum </label>
+						<div class="input-group date" id="dateTimeDatum" data-ng-init="initDateTimePickerDatum()">
+				 			<input type="text" class="form-control" id="dateTextFieldDatum"/> 
+				 			<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
 				<br>
 				</form>
 			</div>
@@ -63,10 +64,11 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<div class="input-group date" id="updateDateTimeDatum" data-ng-init="initDateTimePickerDatum()">
-				 				<input type="text" class="form-control" id="updateDateTextFieldDatum"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
+						<label for="updateDateTimeDatum">Datum </label>
+						<div class="input-group date" id="updateDateTimeDatum" data-ng-init="initDateTimePickerDatum()">
+			 				<input type="text" class="form-control" id="updateDateTextFieldDatum"/> 
+			 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
 				<br>
 				</form>
 			</div>

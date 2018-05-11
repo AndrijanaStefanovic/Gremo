@@ -6,32 +6,32 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'pocetakPunjenja'">Po?etak punjenja<span
-					data-ng-show="sortType == 'pocetakPunjenja'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'krajPunjenja'">Kraj punjenja<span
-					data-ng-show="sortType == 'krajPunjenja'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'vozilo.registracioniBroj'">Registracioni broj <span
-					data-ng-show="sortType == 'vozilo.registracioniBroj'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'tipPrikljucka.nazivTipaPrikljucka'">Naziv tipa prikljucka <span
-					data-ng-show="sortType == 'tipPrikljucka.nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'stanica.adresaStanice'">Adresa stanice <span
-					data-ng-show="sortType == 'stanica.adresaStanice'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'pocetakPunjenja'">Po?etak punjenja<span
+				data-ng-show="sortType == 'pocetakPunjenja'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'krajPunjenja'">Kraj punjenja<span
+				data-ng-show="sortType == 'krajPunjenja'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'vozilo.registracioniBroj'">Registracioni broj <span
+				data-ng-show="sortType == 'vozilo.registracioniBroj'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'tipPrikljucka.nazivTipaPrikljucka'">Naziv tipa prikljucka <span
+				data-ng-show="sortType == 'tipPrikljucka.nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'stanica.adresaStanice'">Adresa stanice <span
+				data-ng-show="sortType == 'stanica.adresaStanice'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in punjenjeList | orderBy:sortType:sortReverse | filter:filterFunction ">
-					<td>{{x.pocetakPunjenja | date : "dd-MM-yyyy HH:mm" }}</td>
-					<td>{{x.krajPunjenja | date : "dd-MM-yyyy HH:mm" }}</td>
-					<td>{{x.vozilo.registracioniBroj}}</td>
-					<td>{{x.tipPrikljucka.nazivTipaPrikljucka}}</td>
-					<td>{{x.stanica.adresaStanice}}</td>
+			<td>{{x.pocetakPunjenja | date : "dd-MM-yyyy HH:mm" }}</td>
+			<td>{{x.krajPunjenja | date : "dd-MM-yyyy HH:mm" }}</td>
+			<td>{{x.vozilo.registracioniBroj}}</td>
+			<td>{{x.tipPrikljucka.nazivTipaPrikljucka}}</td>
+			<td>{{x.stanica.adresaStanice}}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -56,29 +56,34 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<div class="input-group date" id="dateTimePocetakPunjenja" data-ng-init="initDateTimePickerPocetakPunjenja()">
-				 				<input type="text" class="form-control" id="dateTextFieldPocetakPunjenja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-							<div class="input-group date" id="dateTimeKrajPunjenja" data-ng-init="initDateTimePickerKrajPunjenja()">
-				 				<input type="text" class="form-control" id="dateTextFieldKrajPunjenja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-						<select name="selectVozilo" id="selectVozilo" ng-model="punjenje.vozilo.id" required>
-							<option ng-repeat="x in voziloList" value="{{x.id}}">
+						<label for="dateTimePocetakPunjenja">Pocetak punjenja </label>
+						<div class="input-group date" id="dateTimePocetakPunjenja" data-ng-init="initDateTimePickerPocetakPunjenja()">
+				 			<input type="text" class="form-control" id="dateTextFieldPocetakPunjenja"/> 
+				 			<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+						<label for="dateTimeKrajPunjenja">Kraj punjenja </label>
+						<div class="input-group date" id="dateTimeKrajPunjenja" data-ng-init="initDateTimePickerKrajPunjenja()">
+				 			<input type="text" class="form-control" id="dateTextFieldKrajPunjenja"/> 
+				 			<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+					<label for="selectVozilo">Vozilo </label>
+					<select name="selectVozilo" id="selectVozilo" ng-model="punjenje.vozilo.id" required>
+						<option ng-repeat="x in voziloList" value="{{x.id}}">
 							{{x.registracioniBroj}} 
-							</option>
-						</select>
-						<select name="selectTipPrikljucka" id="selectTipPrikljucka" ng-model="punjenje.tipPrikljucka.id" required>
-							<option ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
+						</option>
+					</select>
+					<label for="selectTipPrikljucka">Tip prikljucka </label>
+					<select name="selectTipPrikljucka" id="selectTipPrikljucka" ng-model="punjenje.tipPrikljucka.id" required>
+						<option ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
 							{{x.nazivTipaPrikljucka}} 
-							</option>
-						</select>
-						<select name="selectStanica" id="selectStanica" ng-model="punjenje.stanica.id" required>
-							<option ng-repeat="x in stanicaList" value="{{x.id}}">
+						</option>
+					</select>
+					<label for="selectStanica">Stanica </label>
+					<select name="selectStanica" id="selectStanica" ng-model="punjenje.stanica.id" required>
+						<option ng-repeat="x in stanicaList" value="{{x.id}}">
 							{{x.adresaStanice}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>
@@ -99,29 +104,34 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<div class="input-group date" id="updateDateTimePocetakPunjenja" data-ng-init="initDateTimePickerPocetakPunjenja()">
-				 				<input type="text" class="form-control" id="updateDateTextFieldPocetakPunjenja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-							<div class="input-group date" id="updateDateTimeKrajPunjenja" data-ng-init="initDateTimePickerKrajPunjenja()">
-				 				<input type="text" class="form-control" id="updateDateTextFieldKrajPunjenja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-						<select id="updateSelectVozilo" required>
-							<option data-ng-repeat="x in voziloList" value="{{x.id}}">
+						<label for="updateDateTimePocetakPunjenja">Pocetak punjenja </label>
+						<div class="input-group date" id="updateDateTimePocetakPunjenja" data-ng-init="initDateTimePickerPocetakPunjenja()">
+			 				<input type="text" class="form-control" id="updateDateTextFieldPocetakPunjenja"/> 
+			 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+						<label for="updateDateTimeKrajPunjenja">Kraj punjenja </label>
+						<div class="input-group date" id="updateDateTimeKrajPunjenja" data-ng-init="initDateTimePickerKrajPunjenja()">
+			 				<input type="text" class="form-control" id="updateDateTextFieldKrajPunjenja"/> 
+			 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+					<label for="updateSelectVozilo">Vozilo </label>
+					<select id="updateSelectVozilo" required>
+						<option data-ng-repeat="x in voziloList" value="{{x.id}}">
 								{{x.registracioniBroj}} 
-							</option>
-						</select>
-						<select id="updateSelectTipPrikljucka" required>
-							<option data-ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
+						</option>
+					</select>
+					<label for="updateSelectTipPrikljucka">Tip prikljucka </label>
+					<select id="updateSelectTipPrikljucka" required>
+						<option data-ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
 								{{x.nazivTipaPrikljucka}} 
-							</option>
-						</select>
-						<select id="updateSelectStanica" required>
-							<option data-ng-repeat="x in stanicaList" value="{{x.id}}">
+						</option>
+					</select>
+					<label for="updateSelectStanica">Stanica </label>
+					<select id="updateSelectStanica" required>
+						<option data-ng-repeat="x in stanicaList" value="{{x.id}}">
 								{{x.adresaStanice}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>

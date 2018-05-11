@@ -5,20 +5,20 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'nazivTipaPrikljucka'">Naziv tipa prikljucka<span
-					data-ng-show="sortType == 'nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'kw'">Koli?ina kW<span
-					data-ng-show="sortType == 'kw'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'nazivTipaPrikljucka'">Naziv tipa prikljucka<span
+				data-ng-show="sortType == 'nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'kw'">Koli?ina kW<span
+				data-ng-show="sortType == 'kw'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in tipPrikljuckaList | orderBy:sortType:sortReverse">
-					<td>{{x.nazivTipaPrikljucka }}</td>
-					<td>{{x.kw }}</td>
+			<td>{{x.nazivTipaPrikljucka }}</td>
+			<td>{{x.kw }}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -43,8 +43,8 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<input type="text" placeholder="Naziv tipa prikljucka" data-ng-model="tipPrikljucka.nazivTipaPrikljucka" maxlength="30" required><br>
-							<input type="number" placeholder="Koli?ina kW" data-ng-model="tipPrikljucka.kw"   required><br>
+					<input type="text" placeholder="Naziv tipa prikljucka" data-ng-model="tipPrikljucka.nazivTipaPrikljucka" maxlength="30" required><br>
+					<input type="number" placeholder="Koli?ina kW" data-ng-model="tipPrikljucka.kw"   required><br>
 				<br>
 				</form>
 			</div>
@@ -65,8 +65,8 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<input type="text" placeholder="Naziv tipa prikljucka" data-ng-model="tipPrikljucka.nazivTipaPrikljucka"  required><br>
-							<input type="text" placeholder="Koli?ina kW" data-ng-model="tipPrikljucka.kw"  required><br>
+						<input type="text" placeholder="Naziv tipa prikljucka" data-ng-model="tipPrikljucka.nazivTipaPrikljucka"  required><br>
+						<input type="text" placeholder="Koli?ina kW" data-ng-model="tipPrikljucka.kw"  required><br>
 				<br>
 				</form>
 			</div>

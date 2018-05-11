@@ -5,16 +5,16 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'nazivGrada'">Naziv grada<span
-					data-ng-show="sortType == 'nazivGrada'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'nazivGrada'">Naziv grada<span
+				data-ng-show="sortType == 'nazivGrada'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in gradList | orderBy:sortType:sortReverse">
-					<td>{{x.nazivGrada }}</td>
+			<td>{{x.nazivGrada }}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -39,7 +39,7 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<input type="text" placeholder="Naziv grada" data-ng-model="grad.nazivGrada" maxlength="30" required><br>
+					<input type="text" placeholder="Naziv grada" data-ng-model="grad.nazivGrada" maxlength="30" required><br>
 				<br>
 				</form>
 			</div>
@@ -60,7 +60,7 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<input type="text" placeholder="Naziv grada" data-ng-model="grad.nazivGrada"  required><br>
+						<input type="text" placeholder="Naziv grada" data-ng-model="grad.nazivGrada"  required><br>
 				<br>
 				</form>
 			</div>

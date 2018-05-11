@@ -6,20 +6,20 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'adresaStanice'">Adresa stanice<span
-					data-ng-show="sortType == 'adresaStanice'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'grad.nazivGrada'">Naziv grada <span
-					data-ng-show="sortType == 'grad.nazivGrada'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'adresaStanice'">Adresa stanice<span
+				data-ng-show="sortType == 'adresaStanice'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'grad.nazivGrada'">Naziv grada <span
+				data-ng-show="sortType == 'grad.nazivGrada'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in stanicaList | orderBy:sortType:sortReverse | filter:filterFunction ">
-					<td>{{x.adresaStanice }}</td>
-					<td>{{x.grad.nazivGrada}}</td>
+			<td>{{x.adresaStanice }}</td>
+			<td>{{x.grad.nazivGrada}}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -44,12 +44,13 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<input type="text" placeholder="Adresa stanice" data-ng-model="stanica.adresaStanice" maxlength="30" required><br>
-						<select name="selectGrad" id="selectGrad" ng-model="stanica.grad.id" required>
-							<option ng-repeat="x in gradList" value="{{x.id}}">
+					<input type="text" placeholder="Adresa stanice" data-ng-model="stanica.adresaStanice" maxlength="30" required><br>
+					<label for="selectGrad">Grad </label>
+					<select name="selectGrad" id="selectGrad" ng-model="stanica.grad.id" required>
+						<option ng-repeat="x in gradList" value="{{x.id}}">
 							{{x.nazivGrada}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>
@@ -70,12 +71,13 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<input type="text" placeholder="Adresa stanice" data-ng-model="stanica.adresaStanice"  required><br>
-						<select id="updateSelectGrad" required>
-							<option data-ng-repeat="x in gradList" value="{{x.id}}">
+						<input type="text" placeholder="Adresa stanice" data-ng-model="stanica.adresaStanice"  required><br>
+					<label for="updateSelectGrad">Grad </label>
+					<select id="updateSelectGrad" required>
+						<option data-ng-repeat="x in gradList" value="{{x.id}}">
 								{{x.nazivGrada}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>

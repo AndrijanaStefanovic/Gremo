@@ -5,24 +5,24 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'imeVlasnika'">Ime vlasnika<span
-					data-ng-show="sortType == 'imeVlasnika'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'prezimeVlasnika'">Prezime vlasnika<span
-					data-ng-show="sortType == 'prezimeVlasnika'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'kredit'">Kredit<span
-					data-ng-show="sortType == 'kredit'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'imeVlasnika'">Ime vlasnika<span
+				data-ng-show="sortType == 'imeVlasnika'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'prezimeVlasnika'">Prezime vlasnika<span
+				data-ng-show="sortType == 'prezimeVlasnika'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'kredit'">Kredit<span
+				data-ng-show="sortType == 'kredit'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in karticaList | orderBy:sortType:sortReverse">
-					<td>{{x.imeVlasnika }}</td>
-					<td>{{x.prezimeVlasnika }}</td>
-					<td>{{x.kredit }}</td>
+			<td>{{x.imeVlasnika }}</td>
+			<td>{{x.prezimeVlasnika }}</td>
+			<td>{{x.kredit }}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -47,9 +47,9 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<input type="text" placeholder="Ime vlasnika" data-ng-model="kartica.imeVlasnika" maxlength="30" required><br>
-							<input type="text" placeholder="Prezime vlasnika" data-ng-model="kartica.prezimeVlasnika" maxlength="30" required><br>
-							<input type="number" placeholder="Kredit" data-ng-model="kartica.kredit"   required><br>
+					<input type="text" placeholder="Ime vlasnika" data-ng-model="kartica.imeVlasnika" maxlength="30" required><br>
+					<input type="text" placeholder="Prezime vlasnika" data-ng-model="kartica.prezimeVlasnika" maxlength="30" required><br>
+					<input type="number" placeholder="Kredit" data-ng-model="kartica.kredit"   required><br>
 				<br>
 				</form>
 			</div>
@@ -70,9 +70,9 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<input type="text" placeholder="Ime vlasnika" data-ng-model="kartica.imeVlasnika"  required><br>
-							<input type="text" placeholder="Prezime vlasnika" data-ng-model="kartica.prezimeVlasnika"  required><br>
-							<input type="text" placeholder="Kredit" data-ng-model="kartica.kredit"  readonly required><br>
+						<input type="text" placeholder="Ime vlasnika" data-ng-model="kartica.imeVlasnika"  required><br>
+						<input type="text" placeholder="Prezime vlasnika" data-ng-model="kartica.prezimeVlasnika"  required><br>
+						<input type="text" placeholder="Kredit" data-ng-model="kartica.kredit"  readonly required><br>
 				<br>
 				</form>
 			</div>

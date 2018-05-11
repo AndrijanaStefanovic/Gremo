@@ -6,28 +6,28 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'registracioniBroj'">Registracioni broj<span
-					data-ng-show="sortType == 'registracioniBroj'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'modelVozila.nazivModelaVozila'">Naziv modela vozila <span
-					data-ng-show="sortType == 'modelVozila.nazivModelaVozila'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'kartica.imeVlasnika'">Ime vlasnika <span
-					data-ng-show="sortType == 'kartica.imeVlasnika'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'kartica.prezimeVlasnika'">Prezime vlasnika <span
-					data-ng-show="sortType == 'kartica.prezimeVlasnika'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'registracioniBroj'">Registracioni broj<span
+				data-ng-show="sortType == 'registracioniBroj'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'modelVozila.nazivModelaVozila'">Naziv modela vozila <span
+				data-ng-show="sortType == 'modelVozila.nazivModelaVozila'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'kartica.imeVlasnika'">Ime vlasnika <span
+				data-ng-show="sortType == 'kartica.imeVlasnika'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'kartica.prezimeVlasnika'">Prezime vlasnika <span
+				data-ng-show="sortType == 'kartica.prezimeVlasnika'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in voziloList | orderBy:sortType:sortReverse | filter:filterFunction ">
-					<td>{{x.registracioniBroj }}</td>
-					<td>{{x.modelVozila.nazivModelaVozila}}</td>
-					<td>{{x.kartica.imeVlasnika}}</td>
-					<td>{{x.kartica.prezimeVlasnika}}</td>
+			<td>{{x.registracioniBroj }}</td>
+			<td>{{x.modelVozila.nazivModelaVozila}}</td>
+			<td>{{x.kartica.imeVlasnika}}</td>
+			<td>{{x.kartica.prezimeVlasnika}}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -52,17 +52,19 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj" maxlength="30" required><br>
-						<select name="selectModelVozila" id="selectModelVozila" ng-model="vozilo.modelVozila.id" required>
-							<option ng-repeat="x in modelVozilaList" value="{{x.id}}">
+					<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj" maxlength="30" required><br>
+					<label for="selectModelVozila">Model vozila </label>
+					<select name="selectModelVozila" id="selectModelVozila" ng-model="vozilo.modelVozila.id" required>
+						<option ng-repeat="x in modelVozilaList" value="{{x.id}}">
 							{{x.nazivModelaVozila}} 
-							</option>
-						</select>
-						<select name="selectKartica" id="selectKartica" ng-model="vozilo.kartica.id" required>
-							<option ng-repeat="x in karticaList" value="{{x.id}}">
+						</option>
+					</select>
+					<label for="selectKartica">Kartica </label>
+					<select name="selectKartica" id="selectKartica" ng-model="vozilo.kartica.id" required>
+						<option ng-repeat="x in karticaList" value="{{x.id}}">
 							{{x.imeVlasnika}} {{x.prezimeVlasnika}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>
@@ -83,17 +85,19 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj"  required><br>
-						<select id="updateSelectModelVozila" required>
-							<option data-ng-repeat="x in modelVozilaList" value="{{x.id}}">
+						<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj"  required><br>
+					<label for="updateSelectModelVozila">Model vozila </label>
+					<select id="updateSelectModelVozila" required>
+						<option data-ng-repeat="x in modelVozilaList" value="{{x.id}}">
 								{{x.nazivModelaVozila}} 
-							</option>
-						</select>
-						<select id="updateSelectKartica" required>
-							<option data-ng-repeat="x in karticaList" value="{{x.id}}">
+						</option>
+					</select>
+					<label for="updateSelectKartica">Kartica </label>
+					<select id="updateSelectKartica" required>
+						<option data-ng-repeat="x in karticaList" value="{{x.id}}">
 								{{x.imeVlasnika}} {{x.prezimeVlasnika}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>

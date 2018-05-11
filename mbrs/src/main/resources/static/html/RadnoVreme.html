@@ -6,28 +6,28 @@
 <table class="table table-hover">
 	<thead>
 		<tr>
-				<td><a data-ng-click="sortType = 'danUNedelji'">Dan u nedelji<span
-					data-ng-show="sortType == 'danUNedelji'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'vremeOtvaranja'">Vreme otvaranja<span
-					data-ng-show="sortType == 'vremeOtvaranja'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'vremeZatvaranja'">Vreme zatvaranja<span
-					data-ng-show="sortType == 'vremeZatvaranja'" class="fa fa-caret-down"></span>
-				</a></td>
-				<td><a data-ng-click="sortType = 'stanica.adresaStanice'">Adresa stanice <span
-					data-ng-show="sortType == 'stanica.adresaStanice'" class="fa fa-caret-down"></span>
-				</a></td>
+			<td><a data-ng-click="sortType = 'danUNedelji'">Dan u nedelji<span
+				data-ng-show="sortType == 'danUNedelji'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'vremeOtvaranja'">Vreme otvaranja<span
+				data-ng-show="sortType == 'vremeOtvaranja'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'vremeZatvaranja'">Vreme zatvaranja<span
+				data-ng-show="sortType == 'vremeZatvaranja'" class="fa fa-caret-down"></span>
+			</a></td>
+			<td><a data-ng-click="sortType = 'stanica.adresaStanice'">Adresa stanice <span
+				data-ng-show="sortType == 'stanica.adresaStanice'" class="fa fa-caret-down"></span>
+			</a></td>
 		</tr>
 	</thead>
 
 	<tbody>
 
 		<tr data-ng-repeat="x in radnoVremeList | orderBy:sortType:sortReverse | filter:filterFunction ">
-					<td>{{x.danUNedelji }}</td>
-					<td>{{x.vremeOtvaranja | date : "dd-MM-yyyy HH:mm" }}</td>
-					<td>{{x.vremeZatvaranja | date : "dd-MM-yyyy HH:mm" }}</td>
-					<td>{{x.stanica.adresaStanice}}</td>
+			<td>{{x.danUNedelji }}</td>
+			<td>{{x.vremeOtvaranja | date : "dd-MM-yyyy HH:mm" }}</td>
+			<td>{{x.vremeZatvaranja | date : "dd-MM-yyyy HH:mm" }}</td>
+			<td>{{x.stanica.adresaStanice}}</td>
 			
 			<td>
 				<button type="button" class="btn btn-info" data-ng-click="openUpdateModal(x)">
@@ -52,20 +52,23 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-							<input type="number" placeholder="Dan u nedelji" data-ng-model="radnoVreme.danUNedelji"   required><br>
-							<div class="input-group date" id="dateTimeVremeOtvaranja" data-ng-init="initDateTimePickerVremeOtvaranja()">
-				 				<input type="text" class="form-control" id="dateTextFieldVremeOtvaranja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-							<div class="input-group date" id="dateTimeVremeZatvaranja" data-ng-init="initDateTimePickerVremeZatvaranja()">
-				 				<input type="text" class="form-control" id="dateTextFieldVremeZatvaranja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-						<select name="selectStanica" id="selectStanica" ng-model="radnoVreme.stanica.id" required>
-							<option ng-repeat="x in stanicaList" value="{{x.id}}">
+					<input type="number" placeholder="Dan u nedelji" data-ng-model="radnoVreme.danUNedelji"   required><br>
+						<label for="dateTimeVremeOtvaranja">Vreme otvaranja </label>
+						<div class="input-group date" id="dateTimeVremeOtvaranja" data-ng-init="initDateTimePickerVremeOtvaranja()">
+				 			<input type="text" class="form-control" id="dateTextFieldVremeOtvaranja"/> 
+				 			<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+						<label for="dateTimeVremeZatvaranja">Vreme zatvaranja </label>
+						<div class="input-group date" id="dateTimeVremeZatvaranja" data-ng-init="initDateTimePickerVremeZatvaranja()">
+				 			<input type="text" class="form-control" id="dateTextFieldVremeZatvaranja"/> 
+				 			<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+					<label for="selectStanica">Stanica </label>
+					<select name="selectStanica" id="selectStanica" ng-model="radnoVreme.stanica.id" required>
+						<option ng-repeat="x in stanicaList" value="{{x.id}}">
 							{{x.adresaStanice}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>
@@ -86,20 +89,23 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-							<input type="text" placeholder="Dan u nedelji" data-ng-model="radnoVreme.danUNedelji"  required><br>
-							<div class="input-group date" id="updateDateTimeVremeOtvaranja" data-ng-init="initDateTimePickerVremeOtvaranja()">
-				 				<input type="text" class="form-control" id="updateDateTextFieldVremeOtvaranja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-							<div class="input-group date" id="updateDateTimeVremeZatvaranja" data-ng-init="initDateTimePickerVremeZatvaranja()">
-				 				<input type="text" class="form-control" id="updateDateTextFieldVremeZatvaranja"/> 
-				 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
-							</div> 
-						<select id="updateSelectStanica" required>
-							<option data-ng-repeat="x in stanicaList" value="{{x.id}}">
+						<input type="text" placeholder="Dan u nedelji" data-ng-model="radnoVreme.danUNedelji"  required><br>
+						<label for="updateDateTimeVremeOtvaranja">Vreme otvaranja </label>
+						<div class="input-group date" id="updateDateTimeVremeOtvaranja" data-ng-init="initDateTimePickerVremeOtvaranja()">
+			 				<input type="text" class="form-control" id="updateDateTextFieldVremeOtvaranja"/> 
+			 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+						<label for="updateDateTimeVremeZatvaranja">Vreme zatvaranja </label>
+						<div class="input-group date" id="updateDateTimeVremeZatvaranja" data-ng-init="initDateTimePickerVremeZatvaranja()">
+			 				<input type="text" class="form-control" id="updateDateTextFieldVremeZatvaranja"/> 
+			 				<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span> 
+						</div> 
+					<label for="updateSelectStanica">Stanica </label>
+					<select id="updateSelectStanica" required>
+						<option data-ng-repeat="x in stanicaList" value="{{x.id}}">
 								{{x.adresaStanice}} 
-							</option>
-						</select>
+						</option>
+					</select>
 				<br>
 				</form>
 			</div>
