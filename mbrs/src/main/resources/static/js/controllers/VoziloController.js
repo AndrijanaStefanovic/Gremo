@@ -1,3 +1,7 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: jscontroller.ftl
+//Element modela: GremoNaElektriko::Vozilo
+
 angular.module('gremoNaElektrikoApp.VoziloController',[])
     .controller('VoziloController', function ($scope, VoziloService , ModelVozilaService , KarticaService ) {
     

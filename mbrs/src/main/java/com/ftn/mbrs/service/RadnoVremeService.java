@@ -1,3 +1,8 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: service.ftl
+//Element modela: GremoNaElektriko::RadnoVreme
+
+
 package com.ftn.mbrs.service;
 
 import java.util.List;

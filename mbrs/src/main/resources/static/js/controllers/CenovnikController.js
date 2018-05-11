@@ -1,3 +1,7 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: jscontroller.ftl
+//Element modela: GremoNaElektriko::Cenovnik
+
 angular.module('gremoNaElektrikoApp.CenovnikController',[])
     .controller('CenovnikController', function ($scope, CenovnikService ) {
     

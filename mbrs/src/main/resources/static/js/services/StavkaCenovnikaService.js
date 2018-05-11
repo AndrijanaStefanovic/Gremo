@@ -1,3 +1,7 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: jsservice.ftl
+//Element modela: GremoNaElektriko::StavkaCenovnika
+
 angular.module('gremoNaElektrikoApp.StavkaCenovnikaService', [])
 	.factory('StavkaCenovnikaService', function($http) {
 		var factory = {};

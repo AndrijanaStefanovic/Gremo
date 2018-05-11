@@ -1,3 +1,6 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: jsroutes.ftl
+
 var app = angular.module('gremoNaElektrikoApp.routes', ['ngRoute']);
 
 app.config(['$routeProvider','$httpProvider', function ($routeProvider, $httpProvider) {

@@ -1,3 +1,7 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: jscontroller.ftl
+//Element modela: GremoNaElektriko::MarkaVozila
+
 angular.module('gremoNaElektrikoApp.MarkaVozilaController',[])
     .controller('MarkaVozilaController', function ($scope, MarkaVozilaService ) {
     

@@ -1,3 +1,8 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: serviceimpl.ftl
+//Element modela: GremoNaElektriko::TipPrikljucka
+
+
 package com.ftn.mbrs.service.impl;
 
 import java.util.List;
@@ -6,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import com.ftn.mbrs.model.StavkaCenovnika;
-import com.ftn.mbrs.repository.StavkaCenovnikaRepository;
 import com.ftn.mbrs.model.ModelVozila;
 import com.ftn.mbrs.repository.ModelVozilaRepository;
 import com.ftn.mbrs.model.Punjenje;
 import com.ftn.mbrs.repository.PunjenjeRepository;
+import com.ftn.mbrs.model.StavkaCenovnika;
+import com.ftn.mbrs.repository.StavkaCenovnikaRepository;
 
 import com.ftn.mbrs.service.TipPrikljuckaService;
 import com.ftn.mbrs.model.TipPrikljucka;
@@ -24,13 +29,13 @@ public class TipPrikljuckaServiceImpl implements TipPrikljuckaService{
 	private TipPrikljuckaRepository tipPrikljuckaRepository;
 
 	@Autowired
-	private StavkaCenovnikaRepository stavkaCenovnikaRepository;
-	
-	@Autowired
 	private ModelVozilaRepository modelVozilaRepository;
 	
 	@Autowired
 	private PunjenjeRepository punjenjeRepository;
+	
+	@Autowired
+	private StavkaCenovnikaRepository stavkaCenovnikaRepository;
 	
 			
 	
@@ -56,16 +61,16 @@ public class TipPrikljuckaServiceImpl implements TipPrikljuckaService{
 	public String delete(Long id) {
 		TipPrikljucka tipPrikljucka = tipPrikljuckaRepository.getOne(id);
 		
-		List<StavkaCenovnika> stavkaCenovnikas = stavkaCenovnikaRepository.findByTipPrikljucka(tipPrikljucka);
-		if(!stavkaCenovnikas.isEmpty()) {
-			return "ERROR";
-		}    	
 		List<ModelVozila> modelVozilas = modelVozilaRepository.findByTipPrikljucka(tipPrikljucka);
 		if(!modelVozilas.isEmpty()) {
 			return "ERROR";
 		}    	
 		List<Punjenje> punjenjes = punjenjeRepository.findByTipPrikljucka(tipPrikljucka);
 		if(!punjenjes.isEmpty()) {
+			return "ERROR";
+		}    	
+		List<StavkaCenovnika> stavkaCenovnikas = stavkaCenovnikaRepository.findByTipPrikljucka(tipPrikljucka);
+		if(!stavkaCenovnikas.isEmpty()) {
 			return "ERROR";
 		}    	
 		

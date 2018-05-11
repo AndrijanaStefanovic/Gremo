@@ -1,3 +1,7 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: jscontroller.ftl
+//Element modela: GremoNaElektriko::Stanica
+
 angular.module('gremoNaElektrikoApp.StanicaController',[])
     .controller('StanicaController', function ($scope, StanicaService , GradService ) {
     

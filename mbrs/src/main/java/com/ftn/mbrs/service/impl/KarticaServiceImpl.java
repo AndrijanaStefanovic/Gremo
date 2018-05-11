@@ -1,3 +1,8 @@
+//Fri May 11 23:51:24 CEST 2018
+//Generisano na osnovu sablona: serviceimpl.ftl
+//Element modela: GremoNaElektriko::Kartica
+
+
 package com.ftn.mbrs.service.impl;
 
 import java.util.List;
