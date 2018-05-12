@@ -1,3 +1,6 @@
+//Sat May 12 11:32:37 CEST 2018
+//Generisano na osnovu sablona: jsservices.ftl
+
 angular.module('gremoNaElektrikoApp.services',[
 	'gremoNaElektrikoApp.VoziloService',
 	'gremoNaElektrikoApp.KarticaService',

@@ -1,3 +1,8 @@
+//Sat May 12 11:32:37 CEST 2018
+//Generisano na osnovu sablona: serviceimpl.ftl
+//Element modela: GremoNaElektriko::MarkaVozila
+
+
 package com.ftn.mbrs.service.impl;
 
 import java.util.List;

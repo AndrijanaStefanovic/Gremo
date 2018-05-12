@@ -1,6 +1,9 @@
-<div ng-controller='RadnoVremeController'>
-<h1>RadnoVreme</h1>
+<!-- Sat May 12 11:32:37 CEST 2018 -->
+<!-- Generisano na osnovu sablona: htmlpage.ftl -->
+<!-- Element modela: GremoNaElektriko::RadnoVreme -->
 
+<div ng-controller='RadnoVremeController'>
+<h1>Radno vreme </h1>
 <input type="text" class="form-control ng-valid ng-dirty" placeholder="Pretraga" data-ng-model="searchKeyword">
 
 <table class="table table-hover">
@@ -52,7 +55,8 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-					<input type="number" placeholder="Dan u nedelji" data-ng-model="radnoVreme.danUNedelji"   required><br>
+					<label>Dan u nedelji</label>
+					<input type="number" data-ng-model="radnoVreme.danUNedelji" required ><br>
 						<label for="dateTimeVremeOtvaranja">Vreme otvaranja </label>
 						<div class="input-group date" id="dateTimeVremeOtvaranja" data-ng-init="initDateTimePickerVremeOtvaranja()">
 				 			<input type="text" class="form-control" id="dateTextFieldVremeOtvaranja"/> 
@@ -89,7 +93,8 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-						<input type="text" placeholder="Dan u nedelji" data-ng-model="radnoVreme.danUNedelji"  required><br>
+						<label>Dan u nedelji</label>
+						<input type="number" data-ng-model="radnoVreme.danUNedelji"   required><br>
 						<label for="updateDateTimeVremeOtvaranja">Vreme otvaranja </label>
 						<div class="input-group date" id="updateDateTimeVremeOtvaranja" data-ng-init="initDateTimePickerVremeOtvaranja()">
 			 				<input type="text" class="form-control" id="updateDateTextFieldVremeOtvaranja"/> 

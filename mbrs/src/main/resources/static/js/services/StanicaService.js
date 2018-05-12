@@ -1,3 +1,7 @@
+//Sat May 12 11:32:37 CEST 2018
+//Generisano na osnovu sablona: jsservice.ftl
+//Element modela: GremoNaElektriko::Stanica
+
 angular.module('gremoNaElektrikoApp.StanicaService', [])
 	.factory('StanicaService', function($http) {
 		var factory = {};

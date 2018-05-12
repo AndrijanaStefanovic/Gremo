@@ -1,3 +1,8 @@
+//Sat May 12 11:32:37 CEST 2018
+//Generisano na osnovu sablona: repository.ftl
+//Element modela: GremoNaElektriko::Cenovnik
+
+
 package com.ftn.mbrs.repository;
 
 import java.util.List;

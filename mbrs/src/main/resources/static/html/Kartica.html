@@ -1,6 +1,10 @@
-<div ng-controller='KarticaController'>
-<h1>Kartica</h1>
+<!-- Sat May 12 11:32:37 CEST 2018 -->
+<!-- Generisano na osnovu sablona: htmlpage.ftl -->
+<!-- Element modela: GremoNaElektriko::Kartica -->
 
+<div ng-controller='KarticaController'>
+<h1>Kartica </h1>
+<button-directive></button-directive>
 
 <table class="table table-hover">
 	<thead>
@@ -47,9 +51,12 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-					<input type="text" placeholder="Ime vlasnika" data-ng-model="kartica.imeVlasnika" maxlength="30" required><br>
-					<input type="text" placeholder="Prezime vlasnika" data-ng-model="kartica.prezimeVlasnika" maxlength="30" required><br>
-					<input type="number" placeholder="Kredit" data-ng-model="kartica.kredit"   required><br>
+					<label>Ime vlasnika</label>
+					<input type="text" data-ng-model="kartica.imeVlasnika" maxlength="30" required ><br>
+					<label>Prezime vlasnika</label>
+					<input type="text" data-ng-model="kartica.prezimeVlasnika" maxlength="30" required ><br>
+					<label>Kredit</label>
+					<input type="number" data-ng-model="kartica.kredit" ><br>
 				<br>
 				</form>
 			</div>
@@ -70,9 +77,12 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-						<input type="text" placeholder="Ime vlasnika" data-ng-model="kartica.imeVlasnika"  required><br>
-						<input type="text" placeholder="Prezime vlasnika" data-ng-model="kartica.prezimeVlasnika"  required><br>
-						<input type="text" placeholder="Kredit" data-ng-model="kartica.kredit"  readonly required><br>
+						<label>Ime vlasnika</label>
+						<input type="text" data-ng-model="kartica.imeVlasnika" maxlength="30" required><br>
+						<label>Prezime vlasnika</label>
+						<input type="text" data-ng-model="kartica.prezimeVlasnika" maxlength="30" required><br>
+						<label>Kredit</label>
+						<input type="number" data-ng-model="kartica.kredit"   readonly ><br>
 				<br>
 				</form>
 			</div>
@@ -85,4 +95,3 @@
 </div>
 </div>
 
-<button-directive></button-directive>

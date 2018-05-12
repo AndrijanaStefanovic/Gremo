@@ -1,3 +1,7 @@
+//Sat May 12 11:32:37 CEST 2018
+//Generisano na osnovu sablona: jsservice.ftl
+//Element modela: GremoNaElektriko::Kartica
+
 angular.module('gremoNaElektrikoApp.KarticaService', [])
 	.factory('KarticaService', function($http) {
 		var factory = {};

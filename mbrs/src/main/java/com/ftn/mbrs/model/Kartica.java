@@ -1,3 +1,7 @@
+//Sat May 12 11:32:37 CEST 2018
+//Generisano na osnovu sablona: ejbclass.ftl
+//Element modela: GremoNaElektriko::Kartica
+
 package com.ftn.mbrs.model;
 
 import java.io.Serializable;

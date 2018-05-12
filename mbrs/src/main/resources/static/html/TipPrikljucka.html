@@ -1,6 +1,9 @@
-<div ng-controller='TipPrikljuckaController'>
-<h1>TipPrikljucka</h1>
+<!-- Sat May 12 11:32:37 CEST 2018 -->
+<!-- Generisano na osnovu sablona: htmlpage.ftl -->
+<!-- Element modela: GremoNaElektriko::TipPrikljucka -->
 
+<div ng-controller='TipPrikljuckaController'>
+<h1>Tip prikljucka </h1>
 
 <table class="table table-hover">
 	<thead>
@@ -8,7 +11,7 @@
 			<td><a data-ng-click="sortType = 'nazivTipaPrikljucka'">Naziv tipa prikljucka<span
 				data-ng-show="sortType == 'nazivTipaPrikljucka'" class="fa fa-caret-down"></span>
 			</a></td>
-			<td><a data-ng-click="sortType = 'kw'">Koli?ina kW<span
+			<td><a data-ng-click="sortType = 'kw'">Kolicina kW<span
 				data-ng-show="sortType == 'kw'" class="fa fa-caret-down"></span>
 			</a></td>
 		</tr>
@@ -43,8 +46,10 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-					<input type="text" placeholder="Naziv tipa prikljucka" data-ng-model="tipPrikljucka.nazivTipaPrikljucka" maxlength="30" required><br>
-					<input type="number" placeholder="Koli?ina kW" data-ng-model="tipPrikljucka.kw"   required><br>
+					<label>Naziv tipa prikljucka</label>
+					<input type="text" data-ng-model="tipPrikljucka.nazivTipaPrikljucka" maxlength="30" required ><br>
+					<label>Kolicina kW</label>
+					<input type="number" data-ng-model="tipPrikljucka.kw" ><br>
 				<br>
 				</form>
 			</div>
@@ -65,8 +70,10 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-						<input type="text" placeholder="Naziv tipa prikljucka" data-ng-model="tipPrikljucka.nazivTipaPrikljucka"  required><br>
-						<input type="text" placeholder="Koli?ina kW" data-ng-model="tipPrikljucka.kw"  required><br>
+						<label>Naziv tipa prikljucka</label>
+						<input type="text" data-ng-model="tipPrikljucka.nazivTipaPrikljucka" maxlength="30" required><br>
+						<label>Kolicina kW</label>
+						<input type="number" data-ng-model="tipPrikljucka.kw"   ><br>
 				<br>
 				</form>
 			</div>

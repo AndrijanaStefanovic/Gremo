@@ -1,6 +1,9 @@
-<div ng-controller='StavkaCenovnikaController'>
-<h1>StavkaCenovnika</h1>
+<!-- Sat May 12 11:32:37 CEST 2018 -->
+<!-- Generisano na osnovu sablona: htmlpage.ftl -->
+<!-- Element modela: GremoNaElektriko::StavkaCenovnika -->
 
+<div ng-controller='StavkaCenovnikaController'>
+<h1>Stavka cenovnika </h1>
 <input type="text" class="form-control ng-valid ng-dirty" placeholder="Pretraga" data-ng-model="searchKeyword">
 
 <table class="table table-hover">
@@ -52,14 +55,16 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-					<input type="number" placeholder="Cena" data-ng-model="stavkaCenovnika.cena"   required><br>
+					<label>Cena</label>
+					<input type="number" data-ng-model="stavkaCenovnika.cena" required ><br>
 					<label for="selectTipPrikljucka">Tip prikljucka </label>
 					<select name="selectTipPrikljucka" id="selectTipPrikljucka" ng-model="stavkaCenovnika.tipPrikljucka.id" required>
 						<option ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
 							{{x.nazivTipaPrikljucka}} 
 						</option>
 					</select>
-					<input type="number" placeholder="Porez" data-ng-model="stavkaCenovnika.porez"   required><br>
+					<label>Porez</label>
+					<input type="number" data-ng-model="stavkaCenovnika.porez" ><br>
 					<label for="selectCenovnik">Cenovnik </label>
 					<select name="selectCenovnik" id="selectCenovnik" ng-model="stavkaCenovnika.cenovnik.id" required>
 						<option ng-repeat="x in cenovnikList" value="{{x.id}}">
@@ -86,14 +91,16 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-						<input type="text" placeholder="Cena" data-ng-model="stavkaCenovnika.cena"  required><br>
+						<label>Cena</label>
+						<input type="number" data-ng-model="stavkaCenovnika.cena"   required><br>
 					<label for="updateSelectTipPrikljucka">Tip prikljucka </label>
 					<select id="updateSelectTipPrikljucka" required>
 						<option data-ng-repeat="x in tipPrikljuckaList" value="{{x.id}}">
 								{{x.nazivTipaPrikljucka}} 
 						</option>
 					</select>
-						<input type="text" placeholder="Porez" data-ng-model="stavkaCenovnika.porez"  required><br>
+						<label>Porez</label>
+						<input type="number" data-ng-model="stavkaCenovnika.porez"   ><br>
 					<label for="updateSelectCenovnik">Cenovnik </label>
 					<select id="updateSelectCenovnik" required>
 						<option data-ng-repeat="x in cenovnikList" value="{{x.id}}">

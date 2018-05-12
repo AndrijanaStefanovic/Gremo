@@ -1,6 +1,9 @@
-<div ng-controller='VoziloController'>
-<h1>Vozilo</h1>
+<!-- Sat May 12 11:32:37 CEST 2018 -->
+<!-- Generisano na osnovu sablona: htmlpage.ftl -->
+<!-- Element modela: GremoNaElektriko::Vozilo -->
 
+<div ng-controller='VoziloController'>
+<h1>Vozilo </h1>
 <input type="text" class="form-control ng-valid ng-dirty" placeholder="Pretraga" data-ng-model="searchKeyword">
 
 <table class="table table-hover">
@@ -52,7 +55,8 @@
 			</div>
 			<div class="modal-body">
 				<form name="createForm">
-					<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj" maxlength="30" required><br>
+					<label>Registracioni broj</label>
+					<input type="text" data-ng-model="vozilo.registracioniBroj" maxlength="30" required ><br>
 					<label for="selectModelVozila">Model vozila </label>
 					<select name="selectModelVozila" id="selectModelVozila" ng-model="vozilo.modelVozila.id" required>
 						<option ng-repeat="x in modelVozilaList" value="{{x.id}}">
@@ -85,7 +89,8 @@
 			</div>
 			<div class="modal-body">
 				<form name="updateForm">
-						<input type="text" placeholder="Registracioni broj" data-ng-model="vozilo.registracioniBroj"  required><br>
+						<label>Registracioni broj</label>
+						<input type="text" data-ng-model="vozilo.registracioniBroj" maxlength="30" required><br>
 					<label for="updateSelectModelVozila">Model vozila </label>
 					<select id="updateSelectModelVozila" required>
 						<option data-ng-repeat="x in modelVozilaList" value="{{x.id}}">

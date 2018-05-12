@@ -1,3 +1,6 @@
+//Sat May 12 11:32:37 CEST 2018
+//Generisano na osnovu sablona: jscontroller.ftl
+//Element modela: GremoNaElektriko::Punjenje
 angular.module('gremoNaElektrikoApp.PunjenjeController',[])
     .controller('PunjenjeController', function ($scope, PunjenjeService , VoziloService , TipPrikljuckaService , StanicaService ) {
     
